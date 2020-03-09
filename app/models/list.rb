@@ -7,7 +7,7 @@ class List < ApplicationRecord
     array = []
 
     self.tokens.each do |token|
-      array << "  --#{token.name.parameterize}: #{token.value};\n"
+      array << "  --remote-#{token.name.parameterize}: #{token.value};\n"
     end
 
     stylesString = ":root {\n#{array.join}}"
@@ -18,5 +18,7 @@ class List < ApplicationRecord
       filename: 'styles.css',
       content_type: 'text/css'
     )
+
+    ActionCable.server.broadcast('list', { list: self.tokens })
   end
 end
