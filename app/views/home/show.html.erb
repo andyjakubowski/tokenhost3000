@@ -1,5 +1,6 @@
 <div class="home-page">
   <main class="home-page__container">
+    <%= render 'layouts/notice' %>
     <h1 class="home-page__title">TokenHub</h1>
     <%= form_with model: @space, local: true do |form| %>
     <%= form.submit class: "button" %>

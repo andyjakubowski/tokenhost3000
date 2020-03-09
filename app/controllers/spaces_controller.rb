@@ -22,5 +22,11 @@ class SpacesController < ApplicationController
   end
 
   def destroy
+    @space = Space.find_by slug: params[:slug]
+    @space.destroy
+    respond_to do |format|
+      format.html { redirect_to spaces_url, notice: 'Space deleted.' }
+      format.json { head :no_content }
+    end
   end
 end

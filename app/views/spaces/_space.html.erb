@@ -1,3 +1,6 @@
 <div class="space-list-item">
-  <p><%= link_to "Space ##{space.id}", space %></p>
+  <p>
+    <%= link_to "Space ##{space.id}", space %>
+    <%= link_to 'Delete', space, method: :delete %>
+  </p>
 </div>
