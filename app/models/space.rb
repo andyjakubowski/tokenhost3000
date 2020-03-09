@@ -2,7 +2,7 @@ class Space < ApplicationRecord
   has_many :lists, dependent: :destroy
 
   before_create :set_slug
-  after_create :create_sample_list
+  after_create :create_sample_lists
 
   def to_param
     slug
@@ -26,10 +26,16 @@ class Space < ApplicationRecord
       end
     end
 
-    def create_sample_list
-      list = self.lists.new(name: 'Sample List')
-      sample_tokens = YAML::load_file('db/seeds/sample_tokens.yml')
-      list.tokens.new(sample_tokens)
+    def create_sample_lists
+      create_list('basic')
+      create_list('intermediate')
+      create_list('advanced')
+    end
+
+    def create_list(complexity)
+      list = self.lists.new(name: "#{complexity.capitalize} List")
+      tokens = YAML::load_file("db/seeds/tokens/#{complexity}.yml")
+      list.tokens.new(tokens)
       list.save
     end
 end

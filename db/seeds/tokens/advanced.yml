@@ -1,0 +1,11 @@
+---
+- name: 'color-text-primary'
+  value: 'black'
+- name: 'color-text-secondary'
+  value: 'gray'
+- name: 'color-text-tertiary'
+  value: 'silver'
+- name: 'color-interactive-primary'
+  value: 'orange'
+- name: 'color-interactive-secondary'
+  name: 'green'
