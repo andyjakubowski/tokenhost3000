@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Press+Start+2P&display=swap');
+
+:root {
+  --font-size-h1: calc(var(--remote-font-size-h1, 96) * 1px);
+  --font-size-h2: calc(var(--remote-font-size-h2, 64) * 1px);
+  --font-size-h3: calc(var(--remote-font-size-h3, 48) * 1px);
+  --font-size-h4: calc(var(--remote-font-size-h4, 32) * 1px);
+  --font-size-h5: calc(var(--remote-font-size-h5, 24) * 1px);
+  --font-size-h6: calc(var(--remote-font-size-h6, 16) * 1px);
+  --font-size-subtitle1: calc(var(--remote-font-size-subtitle1, 16) * 1px);
+  --font-size-subtitle2: calc(var(--remote-font-size-subtitle2, 14) * 1px);
+  --font-size-body1: calc(var(--remote-font-size-body1, 16) * 1px);
+  --font-size-body2: calc(var(--remote-font-size-body2, 14) * 1px);
+  --font-size-button: calc(var(--remote-font-size-button, 14) * 1px);
+  --font-size-caption: calc(var(--remote-font-size-caption, 12) * 1px);
+  --font-size-overline: calc(var(--remote-font-size-overline, 10) * 1px);
+
+  --font-family-display: 'Press Start 2P';
+  --font-family-body: 'Open Sans';
+
+  --font-weight-semibold: 600;
+}
+
+@mixin text-style-h1 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h1);
+  letter-spacing: -1.5px;
+  line-height: 1.166666667;
+  font-weight: normal;
+}
+
+@mixin text-style-h2 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h2);
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  font-weight: normal;
+}
+
+@mixin text-style-h3 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h3);
+  letter-spacing: initial;
+  line-height: 1.333333333;
+  font-weight: normal;
+}
+
+@mixin text-style-h4 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h4);
+  letter-spacing: 0.25px;
+  line-height: 1.411764706;
+  font-weight: normal;
+}
+
+@mixin text-style-h5 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h5);
+  letter-spacing: initial;
+  line-height: 1.333333333;
+  font-weight: normal;
+}
+
+@mixin text-style-h6 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h6);
+  letter-spacing: 0.15px;
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+@mixin text-style-subtitle1 {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-subtitle1);
+  letter-spacing: 0.15px;
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+@mixin text-style-subtitle2 {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-subtitle2);
+  letter-spacing: 0.1px;
+  line-height: 1.714285714;
+  font-weight: var(--font-weight-semibold);
+}
+
+@mixin text-style-body1 {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body1);
+  letter-spacing: 0.5px;
+  line-height: 1.75;
+  font-weight: normal;
+}
+
+@mixin text-style-body2 {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body2);
+  letter-spacing: 0.25px;
+  line-height: 1.428571429;
+  font-weight: var(--font-weight-semibold);
+}
+
+@mixin text-style-button {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-button);
+  letter-spacing: 1.25px;
+  line-height: 1.357142857;
+  font-weight: var(--font-weight-semibold);
+  text-transform: capitalize;
+  font-variant-caps: small-caps;
+}
+
+@mixin text-style-caption {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-caption);
+  letter-spacing: 0.4px;
+  line-height: 1.333333333;
+  font-weight: var(--font-weight-semibold);
+}
+
+@mixin text-style-overline {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-overline);
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+body {
+  @include text-style-body1;
+  color: var(--color-text-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1 {
+  @include text-style-h4;
+}
+
+h2 {
+  @include text-style-h5;
+}
+
+h3 {
+  @include text-style-h6;
+}
+
+h4 {
+  @include text-style-h4;
+}
+
+h5 {
+  @include text-style-h5;
+}
+
+h6 {
+  @include text-style-h6;
+}
+
+.h1 {
+  @include text-style-h1;
+}
+
+.h2 {
+  @include text-style-h2;
+}
+
+.h3 {
+  @include text-style-h3;
+}
+
+.h4 {
+  @include text-style-h4;
+}
+
+.h5 {
+  @include text-style-h5;
+}
+
+.h6 {
+  @include text-style-h6;
+}
+
+a {
+  color: var(--color-interactive-primary);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

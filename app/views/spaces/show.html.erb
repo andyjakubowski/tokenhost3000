@@ -1,0 +1,20 @@
+<div class="space-page">
+
+  <h2 class="space-page__title"><%= @space.slug %></h2>
+  <% if @space.lists.empty? %>
+    <p class="space-page__no-tokens-text">There are no token lists yet. Go ahead and create the first one.</p>
+  <% else %>
+    <ul class="space-page__list-of-lists">
+      <% @space.lists.each do |list| %>
+        <li class="space-page__list-item">
+          <%= link_to list.name, list_path(list), class: 'space-page__list-item-link' %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="actions">
+    <%= link_to 'Create list', new_space_list_path(@space), class: 'actions__item' %>
+  </div>
+
+</div>

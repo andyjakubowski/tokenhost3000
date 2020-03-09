@@ -1,0 +1,35 @@
+.space-page {
+  &__link {
+    display: block;
+    padding: var(--padding-regular);
+    background-color: var(--color-text-secondary);
+  }
+
+  &__title {
+    margin-bottom: var(--padding-regular);
+  }
+
+  &__no-tokens-text {
+    margin-bottom: var(--padding-regular);
+  }
+
+  &__list-of-lists {
+    list-style: none;
+    margin: 0 0 var(--padding-regular);
+    padding: 0;
+  }
+
+  &__list-item {
+    padding: var(--padding-tiny) 0;
+  }
+
+  &__list-item-link {
+    @include text-style-h6;
+    display: inline-block;
+    padding: var(--padding-small) 0;
+  }
+
+  &__list-card-content {
+    display: block;
+  }
+}

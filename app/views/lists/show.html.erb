@@ -1,0 +1,43 @@
+<div class="list-page">
+  <nav class="list-page__back-link">
+    <%= link_to 'Back to lists', space_path(@list.space) %>
+  </nav>
+  <header class="list-page__header">
+    <h1 class="list-page__title"><%= @list.name %></h1>
+    <p class="list-page__token-count">
+      <%= @list.tokens.size %> <%= 'token'.pluralize @list.tokens.size %>
+    </p>
+    <div class="list-page__edit-name-pill">
+      <div class="pill-actions">
+        <%= link_to 'Edit name', edit_list_path(@list), class: 'pill-actions__item' %>
+      </div>
+    </div>
+    <p>
+      <% if @list.stylesheet.attached? %>
+      Download CSS: <%= link_to css_list_url(@list), css_list_url(@list) %>
+      <% end %>
+    </p>
+  </header>
+
+  <div class="list-page__add-token-section">
+    <h2 class="list-page__add-token-section-title">Create a new token</h2>
+    <div class="list-page__add-token-form">
+      <%= render 'tokens/form', token: [@list, @list.tokens.new] %>
+    </div>
+  </div>
+
+  <div class="list-page__tokens-section">
+    <% @groupedTokens.each do |categoryName, tokens| %>
+      <div class="list-page__token-category">
+        <h2 class="list-page__token-category-title"><%= categoryName %></h2>
+        <div class="list-page__token-category-grid">
+          <% tokens.each do |token| %>
+            <div class="card">
+              <%= render token %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

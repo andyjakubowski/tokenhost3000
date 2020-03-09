@@ -1,0 +1,17 @@
+<!-- <h1>Editing Token</h1>
+
+<%= render 'form', token: @token %>
+
+<%= link_to 'Back to list', list_path(@token.list) %> -->
+
+<div class="edit-token-page">
+  <nav class="edit-token-page__back-link">
+    <%= link_to 'Back to list', @token.list %>
+  </nav>
+
+  <h1 class="edit-token-page__title">Edit token</h1>
+
+  <div class="edit-token-page__form">
+    <%= render 'form', token: @token %>
+  </div>
+</div>

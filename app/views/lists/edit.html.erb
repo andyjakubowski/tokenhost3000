@@ -1,0 +1,11 @@
+<div class="edit-list-page">
+  <nav class="edit-list-page__back-link">
+    <%= link_to 'Back to list', @list %>
+  </nav>
+
+  <h1 class="edit-list-page__title">Edit list</h1>
+
+  <div class="edit-list-page__form">
+    <%= render 'form', list: @list, model: @list %>
+  </div>
+</div>

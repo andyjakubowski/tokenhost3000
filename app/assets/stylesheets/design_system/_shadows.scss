@@ -1,0 +1,17 @@
+:root {
+  --shadow-large__blur: var(--remote-shadow-large__blur, 32px);
+  --shadow-large__offset-y: var(--remote-shadow-large__offset-y, -8px);
+
+  --shadow-regular__blur: var(--remote-shadow-regular__blur, 16px);
+  --shadow-regular__offset-y: var(--remote-shadow-regular__offset-y, -4px);
+
+  --shadow-color: var(--color-text-tertiary);
+}
+
+@mixin box-shadow-regular {
+  box-shadow: 0 var(--shadow-regular__offset-y) var(--shadow-regular__blur) var(--shadow-color);
+}
+
+@mixin box-shadow-large {
+  box-shadow: 0 var(--shadow-large__offset-y) var(--shadow-large__blur) var(--shadow-color);
+}

@@ -1,0 +1,33 @@
+.actions {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    @include text-style-button;
+    text-decoration: none;
+    border: 0;
+    border-radius: var(--radius-regular);
+    background-color: var(--color-interactive-secondary);
+    color: var(--color-interactive-inverse);
+    padding: var(--padding-regular) var(--padding-regular);
+    text-align: center;
+    margin-bottom: var(--padding-small);
+  }
+
+  &__action-item:hover {
+    opacity: 0.95;
+  }
+
+  // @media screen and (min-width: 480px) {
+
+  //   flex-direction: row;
+
+  //   &__item {
+  //     min-width: 128px;
+  //     &:not(:last-child) {
+  //       margin-right: var(--padding-small);
+  //     }
+  //   }
+  // }
+}
+

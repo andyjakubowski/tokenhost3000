@@ -1,0 +1,12 @@
+<div class="token">
+  <div class="token__content">
+    <h3 class="token__value"><%= token.value %></h3>
+    <p class="token__name"><%= token.name %></p>
+  </div>
+  <div class="pill-actions">
+    <%= link_to 'Edit', edit_token_path(token), class: 'pill-actions__item' %>
+    <%= link_to 'Delete', token,
+                method: :delete, class: 'pill-actions__item' %>
+  </div>
+</div>
+

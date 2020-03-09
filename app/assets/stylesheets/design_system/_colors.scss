@@ -1,0 +1,16 @@
+:root {
+  --color-text-primary: var(--remote-color-text-primary, #0A070D);
+  --color-text-secondary: var(--remote-color-text-secondary, #5A4F65);
+  --color-text-tertiary: var(--remote-color-text-tertiary, #B8B4BD);
+  --color-text-inverse-primary: var(--remote-color-text-inverse-primary, #EAE7EE);
+
+  --color-background-canvas: var(--remote-color-background-canvas, #F7F6F8);
+  --color-background-surface: var(--remote-color-background-surface, white);
+  --color-background-inverse: var(--remote-color-background-inverse, #0F0817);
+  --color-background-input: var(--remote-color-background-input, #EDEBEF);
+
+  --color-interactive-primary: var(--remote-color-interactive-primary, #FF820F);
+  --color-interactive-secondary: var(--remote-color-interactive-secondary, var(--color-text-tertiary, #FF820F));
+  --color-interactive-tertiary: var(--remote-color-interactive-tertiary,#EDEBEF);
+  --color-interactive-inverse: var(--remote-color-interactive-inverse, white);
+}

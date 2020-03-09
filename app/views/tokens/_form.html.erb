@@ -1,0 +1,18 @@
+<%= form_with model: token, local: true, class: 'form' do |form| %>
+  <div class="form__input">
+    <%= form.label :name, class: 'form__label' %><br>
+    <%= form.text_field :name, class: 'form__field' %>
+  </div>
+
+  <div class="form__input">
+    <%= form.label :value, class: 'form__label' %><br>
+    <%= form.text_field :value, class: 'form__field' %>
+  </div>
+
+  <div class="form__input">
+    <%= form.label :category_id, class: 'form__label' %><br>
+    <%= form.collection_select(:category_id, Category.all, :id, :name, include_blank: 'No Category') %>
+  </div>
+
+  <%= form.submit nil, class: 'form__submit-button button' %>
+<% end %>

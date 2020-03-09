@@ -1,0 +1,15 @@
+.navbar {
+  background-color: var(--color-background-surface);
+  padding: var(--padding-regular);
+  @include box-shadow_regular;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__subtitle {
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-style: italic;
+  }
+}

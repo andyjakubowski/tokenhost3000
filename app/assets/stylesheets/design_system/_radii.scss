@@ -1,0 +1,8 @@
+:root {
+  --radius-fully-round: 1000px;
+  --radius-large: calc(var(--remote-radius-large, 16) * 1px);
+  --radius-medium: calc(var(--remote-radius-medium, 12) * 1px);
+  --radius-regular: calc(var(--remote-radius-regular, 8) * 1px);
+  --radius-small: calc(var(--remote-radius-small, 4) * 1px);
+  --radius-tiny: calc(var(--remote-radius-small, 2) * 1px);
+}

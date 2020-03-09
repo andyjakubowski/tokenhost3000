@@ -1,0 +1,24 @@
+.pill-actions {
+  display: flex;
+
+  &__item {
+    @include text-style-button;
+    text-decoration: none;
+    border: 0;
+    border-radius: var(--radius-fully-round);
+    background-color: var(--color-interactive-tertiary);
+    color: var(--color-text-secondary);
+    padding: var(--padding-small) var(--padding-regular);
+    text-align: center;
+    min-width: 64px;
+
+    &:not(:last-child) {
+      margin-right: var(--padding-small);
+    }
+
+    &:hover {
+    opacity: 0.8;
+  }
+    
+  }
+}

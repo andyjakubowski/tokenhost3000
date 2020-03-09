@@ -1,0 +1,8 @@
+:root {
+  --padding-extra-large: calc(var(--remote-spacing-extra-large, 72) * 1px);
+  --padding-large: calc(var(--remote-spacing-large, 48) * 1px);
+  --padding-medium: calc(var(--remote-spacing-medium, 24) * 1px);
+  --padding-regular: calc(var(--remote-spacing-regular, 16) * 1px);
+  --padding-small: calc(var(--remote-spacing-small, 8) * 1px);
+  --padding-tiny: calc(var(--remote-spacing-tiny, 4) * 1px);
+}

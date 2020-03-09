@@ -1,0 +1,12 @@
+.notice {
+  background-color: var(--color-background-inverse);
+  color: var(--color-text-inverse-primary);
+
+  &--alert {
+    background-color: red;
+  }
+
+  &__container {
+    @include container;
+  }
+}

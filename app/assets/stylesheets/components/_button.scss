@@ -1,0 +1,13 @@
+.button {
+  @include text-style-button;
+  border: 0;
+  border-radius: var(--radius-regular);
+  background-color: var(--color-interactive-primary);
+  color: var(--color-interactive-inverse);
+  cursor: pointer;
+  padding: var(--padding-regular) var(--padding-regular);
+}
+
+.button:hover {
+  opacity: 0.90;
+}

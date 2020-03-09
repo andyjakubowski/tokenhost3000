@@ -1,0 +1,15 @@
+<% if notice.present? %>
+  <div class="notice">
+    <div class="notice__container">
+      <%= notice %>
+    </div>
+  </div>
+<% end %>
+
+<% if alert.present? %>
+  <div class="notice notice--alert">
+    <div class="notice__container">
+      <%= alert %>
+    </div>
+  </div>
+<% end %>
