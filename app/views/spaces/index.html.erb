@@ -3,4 +3,9 @@
   <div class="spaces-page__list">
     <%= render @spaces %>
   </div>
+  <div class="actions">
+    <%= form_with model: Space.new, local: true do |form| %>
+      <%= form.submit class: "actions__item" %>
+    <% end %>
+  </div>
 </div>
