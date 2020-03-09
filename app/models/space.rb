@@ -27,6 +27,9 @@ class Space < ApplicationRecord
     end
 
     def create_sample_list
-      self.lists.create(name: 'Sample List')
+      list = self.lists.new(name: 'Sample List')
+      sample_tokens = YAML::load_file('db/seeds/sample_tokens.yml')
+      list.tokens.new(sample_tokens)
+      list.save
     end
 end
