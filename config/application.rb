@@ -16,6 +16,8 @@ module CapstoneWeek04
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.action_cable.disable_request_forgery_protection = true
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
