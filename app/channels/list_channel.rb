@@ -1,6 +1,7 @@
 class ListChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "list"
+    stream_from "space_#{params[:space_name]}"
+    puts "someone subscribed to space_#{params[:space_name]}"
   end
 
   def unsubscribed

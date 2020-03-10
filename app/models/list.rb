@@ -19,6 +19,6 @@ class List < ApplicationRecord
       content_type: 'text/css'
     )
 
-    # ActionCable.server.broadcast('list', { list: self.tokens })
+    ActionCable.server.broadcast("space_#{self.space.slug}", { list_id: self.id, tokens: self.tokens })
   end
 end
