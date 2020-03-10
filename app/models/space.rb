@@ -35,6 +35,15 @@ class Space < ApplicationRecord
     def create_list(complexity)
       list = self.lists.new(name: "#{complexity.capitalize} Theme")
       tokens = YAML::load_file("db/seeds/tokens/#{complexity}.yml")
+      tokens = tokens.each do |token|
+        category = Category.find_by(name: token['category'])
+
+        if category
+          token['category_id'] = category.id
+        end
+
+        token.delete 'category'
+      end
       list.tokens.new(tokens)
       list.save
       list.generate_css

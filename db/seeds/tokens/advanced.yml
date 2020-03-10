@@ -8,4 +8,4 @@
 - name: 'color-interactive-primary'
   value: 'orange'
 - name: 'color-interactive-secondary'
-  name: 'green'
+  value: 'green'
