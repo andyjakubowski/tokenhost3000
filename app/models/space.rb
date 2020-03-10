@@ -33,10 +33,10 @@ class Space < ApplicationRecord
     end
 
     def create_list(complexity)
-      byebug
       list = self.lists.new(name: "#{complexity.capitalize} Theme")
       tokens = YAML::load_file("db/seeds/tokens/#{complexity}.yml")
       list.tokens.new(tokens)
       list.save
+      list.generate_css
     end
 end

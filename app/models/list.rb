@@ -3,7 +3,7 @@ class List < ApplicationRecord
   belongs_to :space
   has_one_attached :stylesheet
 
-  def update_stylesheet
+  def generate_css
     array = []
 
     self.tokens.each do |token|
@@ -19,6 +19,6 @@ class List < ApplicationRecord
       content_type: 'text/css'
     )
 
-    ActionCable.server.broadcast('list', { list: self.tokens })
+    # ActionCable.server.broadcast('list', { list: self.tokens })
   end
 end
