@@ -74,15 +74,12 @@ const App = (function App() {
   return {
     init () {
       ul = document.querySelector('.token-list-switcher__lists');
+      storage.setItem(`activeListId#${SPACE_NAME}`, activeListId());
+
+      console.log(`App.init: activeListId: ${activeListId()}`);
 
       getLists()
-        .then((lists) => {
-          if (!activeListId()) {
-            storage.setItem(`activeListId#${SPACE_NAME}`, lists[0].id)
-          }
-
-          updateListSwitcher(lists);
-        });
+        .then((lists) => updateListSwitcher(lists));
     },
   };
 }());
