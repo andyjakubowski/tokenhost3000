@@ -1,9 +1,16 @@
 <div class="home-page">
   <main class="home-page__container">
-    <%= render 'layouts/notice' %>
-    <h1 class="home-page__title">TokenHub</h1>
-    <%= form_with model: @space, local: true do |form| %>
-    <%= form.submit class: "button" %>
-    <% end %>
+    <header class="home-page__header">
+      <%= render 'layouts/notice' %>
+      <h1 class="home-page__title">TokenHub</h1>
+      <p class="home-page__subtitle">Power to designers</p>
+      <%= form_with model: @space, local: true do |form| %>
+        <%= form.submit class: "button" %>
+      <% end %>
+    </header>
+    
+    <article class="home-page__description">
+      <p>Power</p>
+    </article>
   </main>
 </div>
