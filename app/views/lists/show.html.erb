@@ -12,11 +12,12 @@
         <%= link_to 'Edit name', edit_list_path(@list), class: 'pill-actions__item' %>
       </div>
     </div>
-    <p>
-      <% if @list.stylesheet.attached? %>
-      Download CSS: <%= link_to css_list_url(@list), css_list_url(@list) %>
-      <% end %>
-    </p>
+    <% if @list.stylesheet.attached? %>
+      <p>Download CSS: <%= link_to nil, css_list_url(@list) %></p>
+    <% end %>
+    <% if @list.stylesheet.attached? %>
+      <p>Example: <%= link_to nil, example_list_url(@list) %></p>
+    <% end %>
   </header>
 
   <div class="list-page__add-token-section">

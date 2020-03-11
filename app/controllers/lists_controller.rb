@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :css]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :css, :example]
+  layout 'example', only: [:example]
 
   def index
     @lists = List.all
@@ -55,6 +56,12 @@ class ListsController < ApplicationController
     if @list.stylesheet.attached?
       redirect_to url_for(@list.stylesheet)
     else
+      redirect_to @list
+    end
+  end
+
+  def example
+    if !@list.stylesheet.attached?
       redirect_to @list
     end
   end

@@ -1,6 +1,7 @@
 <div class="space-page">
 
   <h2 class="space-page__title"><%= @space.slug %></h2>
+
   <% if @space.lists.empty? %>
     <p class="space-page__no-tokens-text">There are no token lists yet. Go ahead and create the first one.</p>
   <% else %>
