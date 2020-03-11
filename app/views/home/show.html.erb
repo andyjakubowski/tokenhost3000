@@ -1,16 +1,19 @@
 <div class="home-page">
   <main class="home-page__container">
-    <header class="home-page__header">
-      <%= render 'layouts/notice' %>
-      <h1 class="home-page__title">TokenHub</h1>
-      <p class="home-page__subtitle">Power to designers</p>
-      <%= form_with model: @space, local: true do |form| %>
-        <%= form.submit class: "button" %>
-      <% end %>
+    <header class="home-page__header-container">
+      <div class="home-page__header-content">
+        <%= render 'layouts/notice' %>
+        <h1 class="home-page__title">TokenHub</h1>
+        <p class="home-page__subtitle">Power to designers</p>
+        <%= form_with model: @space, local: true do |form| %>
+          <%= form.submit class: "button" %>
+        <% end %>
+      </div>
+      <p class="home-page__header-read-more-label">Read the story below</p>
     </header>
     
     <article class="home-page__description">
-      <p>Power</p>
+      <%= sanitize @markdown.render(File.read('app/views/home/_readme.md')) %>
     </article>
   </main>
 </div>

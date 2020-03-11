@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rack-cors'
 gem 'faker'
 gem 'aws-sdk-s3', require: false
+gem 'redcarpet'

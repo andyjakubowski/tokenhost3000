@@ -10,14 +10,26 @@
   }
 
   &__header {
-    align-items: center;
-    background-color: var(--color-background-inverse);
-    color: var(--color-text-inverse-primary);
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-    // padding-bottom: var(--padding-large);
+
+    &-container {
+      height: 100vh;
+      background-color: var(--color-background-inverse);
+      color: var(--color-text-inverse-primary);
+    }
+    
+    &-content {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      height: 90%;
+    }
+
+    &-read-more-label {
+      height: 10%;
+      text-align: center;
+      color: var(--color-text-inverse-tertiary);
+    }
   }
 
   &__title {
@@ -32,7 +44,18 @@
   }
 
   &__description {
-    padding: var(--padding-regular);
-    // background-color: white;
+    padding: var(--padding-medium) var(--padding-regular);
+
+    h1 {
+      margin-bottom: var(--padding-regular);
+    }
+
+    h2 {
+      margin-bottom: var(--padding-regular);
+    }
+
+    p {
+      margin-bottom: var(--padding-regular);
+    }
   }
 }
