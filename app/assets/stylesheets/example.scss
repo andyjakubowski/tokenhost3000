@@ -1,0 +1,246 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+//////////////////////////////////////////////////////////////
+
+:root {
+
+  --color-text-primary: var(--remote-color-text-primary, black);
+  --color-text-secondary: var(--remote-color-text-secondary, gray);
+  --color-text-tertiary: var(--remote-color-text-tertiary, gray);
+  --color-text-inverse-primary: var(--remote-color-text-inverse-primary, white);
+  --color-background-canvas: var(--remote-color-background-canvas, lightgray);
+  --color-background-surface: var(--remote-color-background-surface, lightgreen);
+  --color-background-inverse: var(--remote-color-background-inverse, black);
+  --color-interactive-primary: var(--remote-color-interactive-primary, red);
+  --color-interactive-inverse: var(--remote-color-interactive-inverse, lime);
+
+  --font-size-extra-large: calc(var(--remote-font-size-extra-large, 48) * 1px);
+  --font-size-large: calc(var(--remote-font-size-large, 32) * 1px);
+  --font-size-medium: calc(var(--remote-font-size-medium, 24) * 1px);
+  --font-size-regular: calc(var(--remote-font-size-regular, 20) * 1px);
+  --font-size-small: calc(var(--remote-font-size-small, 16) * 1px);
+
+  --spacing-extra-large: calc(var(--remote-spacing-extra-large, 72) * 1px);
+  --spacing-large: calc(var(--remote-spacing-large, 48) * 1px);
+  --spacing-medium: calc(var(--remote-spacing-medium, 24) * 1px);
+  --spacing-regular: calc(var(--remote-spacing-regular, 16) * 1px);
+  --spacing-small: calc(var(--remote-spacing-small, 8) * 1px);
+  --spacing-tiny: calc(var(--remote-spacing-tiny, 4) * 1px);
+
+  --font-weight-bold: var(--remote-font-weight-bold, 700);
+  --font-weight-medium: var(--remote-font-weight-medium, 500);
+
+  --font-size-h1: var(--font-size-extra-large, 32);
+
+  --page-background: var(--color-background-canvas, lightgray);
+  --card-background: var(--color-background-surface, white);
+
+  --grid-gap-regular: var(--spacing-regular);
+
+  --padding-extra-large: var(--spacing-extra-large);
+  --padding-large: var(--spacing-large);
+  --padding-medium: var(--spacing-medium);
+  --padding-regular: var(--spacing-regular);
+  --padding-small: var(--spacing-small);
+  --padding-tiny: var(--spacing-tiny);
+
+  --radius-large: calc(var(--remote-radius-large, 16) * 1px);
+  --radius-medium: calc(var(--remote-radius-medium, 12) * 1px);
+  --radius-regular: calc(var(--remote-radius-regular, 8) * 1px);
+
+  --button-border-radius: var(--radius-medium);
+  --card-border-radius: var(--radius-large);
+
+  --size-extra-large: calc(var(--sizing-extra-large, 72) * 1px);
+  --size-large: calc(var(--sizing-large, 48) * 1px);
+
+  --footer-background-color: var(--color-background-inverse);
+}
+
+* {
+  transition: all 0.5s ease 0s;
+}
+
+body {
+  background-color: var(--page-background);
+  box-sizing: border-box;
+  font-family: -apple-system, system-ui, sans-serif;
+}
+
+header.page-header {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  padding-top: var(--padding-regular);
+}
+
+footer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: var(--size-extra-large);
+  text-align: center;
+}
+
+footer {
+  background-color: var(--footer-background-color);
+  color: var(--color-text-inverse-primary);
+  padding-bottom: var(--padding-regular);
+}
+
+main header {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  padding: var(--padding-medium);
+}
+
+main header * {
+  margin-bottom: var(--spacing-regular);
+}
+
+h1 {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.text-primary {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-tiny);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-regular);
+  margin-bottom: var(--spacing-small);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-small);
+}
+
+button {
+  border: 0;
+  border-radius: var(--button-border-radius);
+  background-color: var(--color-interactive-primary);
+  color: var(--color-interactive-inverse);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-variant-caps: small-caps;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  padding: var(--padding-regular) var(--padding-regular);
+}
+
+.button-secondary {
+  border: thick double var(--color-interactive-primary);
+  background-color: transparent;
+  color: var(--color-interactive-primary);
+}
+
+.button-secondary:hover {
+  background-color: var(--color-background-surface);
+}
+
+button:hover {
+  opacity: 0.90;
+}
+
+.superhero-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: var(--grid-gap-regular);
+  padding: var(--padding-regular);
+}
+
+.superhero-card {
+  background-color: var(--card-background);
+  border-radius: var(--card-border-radius);
+  padding: var(--padding-medium);
+}
+
+.token-list-switcher {
+  
+  background-color: black;
+  color: gray;
+
+  &__lists {
+    display: flex;
+    height: 56px;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+  }
+
+  &__list-item {
+    flex-shrink: 0;
+    padding: 16px;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+    }
+
+    &_active {
+      color: seashell;
+    }
+  }
+}
