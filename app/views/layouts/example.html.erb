@@ -6,10 +6,12 @@
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="space-slug" content="<%= @list.space.slug %>">
+    <meta name="list-id" content="<%= @list.id %>">
 
     <%= stylesheet_link_tag 'example', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag css_list_url(@list), 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'example', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
