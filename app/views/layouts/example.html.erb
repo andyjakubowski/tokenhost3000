@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="space-slug" content="<%= @list.space.slug %>">
     <meta name="list-id" content="<%= @list.id %>">
+    <meta name="api-url" content="<%= Rails.configuration.token_api_url %>">
 
     <%= stylesheet_link_tag 'example', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag css_list_url(@list), 'data-turbolinks-track': 'reload' %>

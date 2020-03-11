@@ -5,6 +5,7 @@ require("channels")
 
 const App = (function App() {
   const SPACE_NAME = document.querySelector('meta[name="space-slug"]').content;
+  const API_URL = document.querySelector('meta[name="api-url"]').content;
   const root = document.documentElement;
   const storage = window.localStorage;
   let ul;
@@ -14,12 +15,12 @@ const App = (function App() {
   };
 
   const getLists = function getLists() {
-    return fetch(`http://localhost:3027/spaces/${SPACE_NAME}.json`)
+    return fetch(`${API_URL}/${SPACE_NAME}.json`)
       .then((response) => response.json());
   };
 
   const getTokens = function getTokens(listId) {
-    return fetch(`http://localhost:3027/lists/${listId}/tokens.json`)
+    return fetch(`${API_URL}/lists/${listId}/tokens.json`)
       .then((response) => response.json());
   };
 
@@ -76,7 +77,7 @@ const App = (function App() {
       ul = document.querySelector('.token-list-switcher__lists');
       storage.setItem(`activeListId#${SPACE_NAME}`, activeListId());
 
-      console.log(`App.init: activeListId: ${activeListId()}`);
+      // console.log(`App.init: activeListId: ${activeListId()}`);
 
       getLists()
         .then((lists) => updateListSwitcher(lists));
