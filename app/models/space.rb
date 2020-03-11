@@ -27,14 +27,13 @@ class Space < ApplicationRecord
     end
 
     def create_sample_lists
-      create_list('light')
-      create_list('dark')
-      create_list('advanced')
+      create_list('Sample Light', 'light.yml')
+      create_list('Sample Dark', 'dark.yml')
     end
 
-    def create_list(complexity)
-      list = self.lists.new(name: "#{complexity.capitalize} Theme")
-      tokens = YAML::load_file("db/seeds/tokens/#{complexity}.yml")
+    def create_list(list_name, filename)
+      list = self.lists.new(name: list_name)
+      tokens = YAML::load_file("db/seeds/tokens/#{filename}")
       tokens = tokens.each do |token|
         category = Category.find_by(name: token['category'])
 
