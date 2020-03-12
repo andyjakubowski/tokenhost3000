@@ -30,7 +30,12 @@
   <div class="list-page__tokens-section">
     <% @groupedTokens.each do |categoryName, tokens| %>
       <div class="list-page__token-category">
-        <h2 class="list-page__token-category-title"><%= categoryName %></h2>
+        <h2 class="list-page__token-category-title <%= 'list-page__token-category-title_empty' if tokens.empty? %>">
+          <%= categoryName %>
+        </h2>
+        <p class="list-page__token-category-count <%= 'list-page__token-category-count_empty' if tokens.empty? %>">
+          <%= tokens.size %> <%= 'token'.pluralize tokens.size %>
+        </p>
         <div class="list-page__token-category-grid">
           <% tokens.each do |token| %>
             <div class="card">

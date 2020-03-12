@@ -81,8 +81,9 @@ class ListsController < ApplicationController
       result = {}
 
       list.space.categories.each do |category|
-        tokens = category.tokens.where(list_id: list.id)
+        result[category.name] = []
 
+        tokens = category.tokens.where(list_id: list.id)
         unless tokens.empty?
           result[category.name] = tokens.order('name')
         end

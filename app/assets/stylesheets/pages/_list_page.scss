@@ -22,24 +22,27 @@
   }
 
   &__token-category {
-    // border: thin solid gray;
     margin-bottom: var(--padding-large);
-  }
 
-  &__token-category-title {
-    // border: thin solid gray;
-    margin-bottom: var(--padding-regular);
-  }
+    &-title {
+      &_empty {
+        color: var(--color-text-tertiary);
+      }
+    }
 
-  &__token-category-grid {
-    // border: thin solid gray;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: var(--padding-small);
-  }
+    &-count {
+      margin-bottom: var(--padding-regular);
 
-  &__token {
+      &_empty {
+        color: var(--color-text-tertiary);
+      }
+    }
 
+    &-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: var(--padding-small);
+    }
   }
 
   &__add-token-section {
