@@ -11,7 +11,7 @@
 
   <div class="form__input">
     <%= form.label :category_id, class: 'form__label' %><br>
-    <%= form.collection_select(:category_id, token.list.space.categories, :id, :name, include_blank: 'No Category') %>
+    <%= form.collection_select(:category_id, list.space.categories, :id, :name, include_blank: 'No Category') %>
   </div>
 
   <%= form.submit nil, class: 'form__submit-button button' %>

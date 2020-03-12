@@ -5,7 +5,6 @@
   <header class="list-page__header">
     <h1 class="list-page__title"><%= @list.name %></h1>
     <p class="list-page__token-count">
-      <% byebug %>
       <%= @list.tokens.size %> <%= 'token'.pluralize @list.tokens.size %>
     </p>
     <div class="list-page__edit-name-pill">
@@ -24,7 +23,7 @@
   <div class="list-page__add-token-section">
     <h2 class="list-page__add-token-section-title">Create a new token</h2>
     <div class="list-page__add-token-form">
-      <%= render 'tokens/form', model: [@list, @token], token: @token %>
+      <%= render 'tokens/form', model: [@list, @list.tokens.new], list: @list %>
     </div>
   </div>
 
@@ -59,7 +58,7 @@
   <div class="list-page__add-category-section">
     <h2 class="list-page__add-category-section-title">New category</h2>
     <div class="list-page__add-category-form">
-      <%= render 'categories/form', model: [@list.space, @category], category: @category, list_id: @list.id %>
+      <%= render 'categories/form', model: [@space, @space.categories.new], category: @space.categories.new, list_id: @list.id %>
     </div>
   </div>
 </div>

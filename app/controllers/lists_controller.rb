@@ -9,8 +9,6 @@ class ListsController < ApplicationController
 
   def show
     @tokensByCategory = groupTokens(@list)
-    @token = @list.tokens.new
-    @category = @list.space.categories.new
     @space = @list.space
   end
 
