@@ -1,0 +1,6 @@
+---
+- name: 'Colors'
+- name: 'Font Sizes'
+- name: 'Spacing Values'
+- name: 'Border Radii'
+- name: 'Shadow Blurs'

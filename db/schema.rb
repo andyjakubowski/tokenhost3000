@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_100336) do
+ActiveRecord::Schema.define(version: 2020_03_12_091536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_100336) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_categories_on_name", unique: true
+    t.bigint "space_id"
+    t.index ["space_id"], name: "index_categories_on_space_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_100336) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "categories", "spaces"
   add_foreign_key "lists", "spaces"
   add_foreign_key "tokens", "categories"
   add_foreign_key "tokens", "lists"

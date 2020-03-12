@@ -1,8 +1,9 @@
 class Space < ApplicationRecord
   has_many :lists, dependent: :destroy
+  has_many :categories, dependent: :destroy
 
   before_create :set_slug
-  after_create :create_sample_lists
+  after_create :create_sample_categories, :create_sample_lists
 
   def to_param
     slug
@@ -24,6 +25,14 @@ class Space < ApplicationRecord
         self.slug = generate_slug
         break unless Space.where(slug: slug).exists?
       end
+    end
+
+    def create_sample_categories
+      seed_categories = YAML::load_file('db/seeds/categories.yml')
+      seed_categories.each do |category|
+        self.categories.create!(name: category['name'])
+      end
+      byebug
     end
 
     def create_sample_lists
