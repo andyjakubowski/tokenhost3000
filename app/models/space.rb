@@ -32,7 +32,6 @@ class Space < ApplicationRecord
       seed_categories.each do |category|
         self.categories.create!(name: category['name'])
       end
-      byebug
     end
 
     def create_sample_lists
@@ -43,8 +42,9 @@ class Space < ApplicationRecord
     def create_list(list_name, filename)
       list = self.lists.new(name: list_name)
       tokens = YAML::load_file("db/seeds/tokens/#{filename}")
-      tokens = tokens.each do |token|
-        category = Category.find_by(name: token['category'])
+
+      tokens.each do |token|
+        category = self.categories.find_by(name: token['category'])
 
         if category
           token['category_id'] = category.id
