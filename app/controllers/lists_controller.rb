@@ -80,8 +80,8 @@ class ListsController < ApplicationController
 
       list.tokens.each do |token|
         if token.category.nil?
-          result['None'] = result['None'] || []
-          result['None'].push token
+          result['No Category'] = result['No Category'] || []
+          result['No Category'].push token
         else
           result[token.category.name] = result[token.category.name] || []
           result[token.category.name].push token
