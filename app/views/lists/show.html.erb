@@ -41,4 +41,11 @@
       </div>
     <% end %>
   </div>
+
+  <div class="list-page__add-category-section">
+    <h2 class="list-page__add-category-section-title">New category</h2>
+    <div class="list-page__add-category-form">
+      <%= render 'categories/form', model: [@list.space, @category], category: @category, list: @list %>
+    </div>
+  </div>
 </div>

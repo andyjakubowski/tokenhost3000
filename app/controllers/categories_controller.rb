@@ -21,11 +21,13 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    space = Space.find_by slug: params[:space_slug]
+    list = List.find_by id: params[:list_id]
+    @category = space.categories.new(category_params)
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to lists_path, notice: 'Category created.' }
+        format.html { redirect_to list, notice: 'Category created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render 'new' }
@@ -60,6 +62,6 @@ class CategoriesController < ApplicationController
   private
 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :space_slug)
     end
 end

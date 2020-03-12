@@ -50,8 +50,8 @@
     margin-bottom: var(--padding-small);
   }
 
-  &__add-token-form {
-    // margin-bottom: var(--padding-regular);
+  &__add-category-section-title {
+    margin-bottom: var(--padding-small);
   }
 
   @media screen and (min-width: $mobile-threshold-width) {
@@ -60,6 +60,10 @@
     }
 
     &__add-token-form {
+      max-width: $max-width-form-wide-screen;
+    }
+
+    &__add-category-form {
       max-width: $max-width-form-wide-screen;
     }
 

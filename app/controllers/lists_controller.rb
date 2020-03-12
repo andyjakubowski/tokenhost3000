@@ -10,6 +10,7 @@ class ListsController < ApplicationController
   def show
     @groupedTokens = groupTokens(@list)
     @token = @list.tokens.new
+    @category = @list.space.categories.new
   end
 
   def new
