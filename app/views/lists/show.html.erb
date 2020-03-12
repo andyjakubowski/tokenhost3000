@@ -23,7 +23,7 @@
   <div class="list-page__add-token-section">
     <h2 class="list-page__add-token-section-title">Create a new token</h2>
     <div class="list-page__add-token-form">
-      <%= render 'tokens/form', token: [@list, @list.tokens.new] %>
+      <%= render 'tokens/form', model: [@list, @token], token: @token %>
     </div>
   </div>
 
