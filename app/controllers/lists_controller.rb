@@ -8,9 +8,10 @@ class ListsController < ApplicationController
   end
 
   def show
-    @groupedTokens = groupTokens(@list)
+    @tokensByCategory = groupTokens(@list)
     @token = @list.tokens.new
     @category = @list.space.categories.new
+    @space = @list.space
   end
 
   def new
@@ -78,19 +79,20 @@ class ListsController < ApplicationController
     end
 
     def groupTokens(list)
-      result = {}
+      result = []
 
-      list.space.categories.each do |category|
-        result[category.name] = []
-
-        tokens = category.tokens.where(list_id: list.id)
-        unless tokens.empty?
-          result[category.name] = tokens.order('name')
-        end
+      list.space.categories.order('id').each do |category|
+        object = {}
+        object['category'] = category
+        object['tokens'] = category.tokens.where(list_id: list.id).order('LOWER(name)')
+        result << object
       end
 
       unless list.tokens.where(category_id: nil).empty?
-        result['No Category'] = list.tokens.where(category_id: nil).order('LOWER(name)')
+        object = {}
+        object['category'] = nil
+        object['tokens'] = list.tokens.where(category_id: nil).order('LOWER(name)')
+        result << object
       end
 
       result

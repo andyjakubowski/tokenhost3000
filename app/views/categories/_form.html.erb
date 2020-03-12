@@ -11,7 +11,9 @@
     </div>
   <% end %>
 
-  <input name="list_id" type="hidden" value="<%= list.id %>" />
+  <% if list_id %>
+    <input name="list_id" type="hidden" value="<%= list_id %>" />
+  <% end %>
 
   <div class="form__input">
     <%= form.label :name, class: 'form__label' %>

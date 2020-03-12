@@ -1,5 +1,17 @@
-<h1>Edit Existing Category</h1>
+<div class="edit-category-page">
+  <% if @list %>
+    <nav class="edit-category-page__back-link">
+      <%= link_to 'Back to list', @list %>
+    </nav>
+  <% else %>
+    <nav class="edit-category-page__back-link">
+      <%= link_to 'Back to space', @category.space %>
+    </nav>
+  <% end %>
 
-<%= render 'form', category: @category %>
+  <h1 class="edit-category-page__title">Edit category</h1>
 
-<%= link_to 'Back to all lists', lists_path %>
+  <div class="edit-category-page__form">
+    <%= render 'form', model: @category, category: @category, list_id: @list ? @list.id : nil %>
+  </div>
+</div>

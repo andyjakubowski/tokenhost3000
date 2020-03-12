@@ -5,6 +5,7 @@
   <header class="list-page__header">
     <h1 class="list-page__title"><%= @list.name %></h1>
     <p class="list-page__token-count">
+      <% byebug %>
       <%= @list.tokens.size %> <%= 'token'.pluralize @list.tokens.size %>
     </p>
     <div class="list-page__edit-name-pill">
@@ -28,16 +29,24 @@
   </div>
 
   <div class="list-page__tokens-section">
-    <% @groupedTokens.each do |categoryName, tokens| %>
+    <% @tokensByCategory.each do |obj| %>
       <div class="list-page__token-category">
-        <h2 class="list-page__token-category-title <%= 'list-page__token-category-title_empty' if tokens.empty? %>">
-          <%= categoryName %>
+        <h2 class="list-page__token-category-title <%= 'list-page__token-category-title_empty' if obj['tokens'].empty? %>">
+          <%= obj['category'].nil? ? 'No Category' : obj['category']['name'] %>
         </h2>
-        <p class="list-page__token-category-count <%= 'list-page__token-category-count_empty' if tokens.empty? %>">
-          <%= tokens.size %> <%= 'token'.pluralize tokens.size %>
+        <p class="list-page__token-category-count <%= 'list-page__token-category-count_empty' if obj['tokens'].empty? %>">
+          <%= obj['tokens'].size %> <%= 'token'.pluralize obj['tokens'].size %>
         </p>
+        <% if !obj['category'].nil? %>
+          <div class="list-page__token-category-actions pill-actions">
+            <%= link_to 'Edit', edit_category_path(obj['category'], list_id: @list.id), class: 'pill-actions__item' %>
+            <%= link_to 'Delete', category_path(obj['category'], list_id: @list.id),
+                        method: :delete, class: 'pill-actions__item' %>
+          </div>
+        <% end %>
+
         <div class="list-page__token-category-grid">
-          <% tokens.each do |token| %>
+          <% obj['tokens'].each do |token| %>
             <div class="card">
               <%= render token %>
             </div>
@@ -50,7 +59,7 @@
   <div class="list-page__add-category-section">
     <h2 class="list-page__add-category-section-title">New category</h2>
     <div class="list-page__add-category-form">
-      <%= render 'categories/form', model: [@list.space, @category], category: @category, list: @list %>
+      <%= render 'categories/form', model: [@list.space, @category], category: @category, list_id: @list.id %>
     </div>
   </div>
 </div>

@@ -31,11 +31,15 @@
     }
 
     &-count {
-      margin-bottom: var(--padding-regular);
+      margin-bottom: var(--padding-small);
 
       &_empty {
         color: var(--color-text-tertiary);
       }
+    }
+
+    &-actions {
+      margin-bottom: var(--padding-medium);
     }
 
     &-grid {

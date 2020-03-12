@@ -18,6 +18,7 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+    @list = List.find_by id: params[:list_id]
   end
 
   def create
@@ -36,11 +37,17 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    list = List.find_by id: params[:list_id]
     @category = Category.find(params[:id])
+    space = @category.space
 
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to lists_path, notice: 'Successfully edited the category.' }
+        if list
+          format.html { redirect_to list, notice: 'Edited category.' }
+        else
+          format.html { redirect_to space, notice: 'Edited category.' }
+        end
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render 'edit' }
@@ -50,11 +57,12 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
+    list = List.find(params[:list_id])
+    category = Category.find(params[:id])
+    category.destroy
 
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'Category deleted.' }
+      format.html { redirect_to list, notice: 'Category deleted.' }
       format.json { head :no_content }
     end
   end
