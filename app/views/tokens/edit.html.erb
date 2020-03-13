@@ -6,6 +6,6 @@
   <h1 class="edit-token-page__title">Edit token</h1>
 
   <div class="edit-token-page__form">
-    <%= render 'form', model: @token, list: @token.list %>
+    <%= render 'form', model: @token, list: @token.list, form_url: token_path(@token) %>
   </div>
 </div>

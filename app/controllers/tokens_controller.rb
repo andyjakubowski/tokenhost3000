@@ -55,6 +55,6 @@ class TokensController < ApplicationController
     end
 
     def token_params
-      params.require(:token).permit(:name, :value, :category_id, :list_id)
+      params.require(:token).permit(:name, :value, :category_id, :list_id, :type)
     end
 end

@@ -1,7 +1,13 @@
 .token {
 
   &__content {
+    // display: flex;
 
+    &-visual {
+      background-color: #E9F9FF;
+      height: 56px;
+      margin-bottom: var(--padding-small)
+    }
   }
 
   &__value {

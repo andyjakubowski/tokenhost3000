@@ -23,7 +23,7 @@
   <div class="list-page__add-token-section">
     <h2 class="list-page__add-token-section-title">Create a new token</h2>
     <div class="list-page__add-token-form">
-      <%= render 'tokens/form', model: [@list, @list.tokens.new], list: @list %>
+      <%= render 'tokens/form', model: [@list, @list.tokens.new], list: @list, form_url: list_tokens_path(@list) %>
     </div>
   </div>
 
@@ -47,7 +47,7 @@
         <div class="list-page__token-category-grid">
           <% obj['tokens'].each do |token| %>
             <div class="card">
-              <%= render token %>
+              <%= render 'tokens/token', token: token %>
             </div>
           <% end %>
         </div>

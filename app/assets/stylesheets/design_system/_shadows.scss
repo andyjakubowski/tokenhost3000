@@ -5,13 +5,21 @@
   --shadow-regular__blur: var(--remote-shadow-regular__blur, 16px);
   --shadow-regular__offset-y: var(--remote-shadow-regular__offset-y, -4px);
 
+  --shadow-tiny__blur: var(--remote-shadow-tiny__blur, 8px);
+  --shadow-tiny__offset-y: var(--remote-shadow-tiny__offset-y, 0);
+
   --shadow-color: var(--color-text-tertiary);
+
+}
+
+@mixin box-shadow-large {
+  box-shadow: 0 var(--shadow-large__offset-y) var(--shadow-large__blur) var(--shadow-color);
 }
 
 @mixin box-shadow-regular {
   box-shadow: 0 var(--shadow-regular__offset-y) var(--shadow-regular__blur) var(--shadow-color);
 }
 
-@mixin box-shadow-large {
-  box-shadow: 0 var(--shadow-large__offset-y) var(--shadow-large__blur) var(--shadow-color);
+@mixin box-shadow-tiny {
+  box-shadow: 0 var(--shadow-tiny__offset-y) var(--shadow-tiny__blur) var(--shadow-color);
 }
