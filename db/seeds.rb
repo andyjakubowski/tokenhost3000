@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create!([
-  { name: 'Colors' }, 
-  { name: 'Font Sizes' },
-  { name: 'Spacing Values' },
-  { name: 'Border Radii' },
-  { name: 'Shadow Blurs' }
-])
+# Category.create!([
+#   { name: 'Colors' }, 
+#   { name: 'Font Sizes' },
+#   { name: 'Spacing Values' },
+#   { name: 'Border Radii' },
+#   { name: 'Shadow Blurs' }
+# ])
 
 # List.create!([
 #   { name: 'Apple iOS' },
