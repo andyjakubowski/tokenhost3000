@@ -1,0 +1,2 @@
+class Color < Token
+end
