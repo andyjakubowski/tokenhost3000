@@ -85,12 +85,15 @@
   value: '500'
 - name: 'radius-large'
   value: '16'
-  category: 'Border Radii'
+  category: 'Border Radiuses'
+  type: 'BorderRadius'
 - name: 'radius-medium'
   value: '12'
-  category: 'Border Radii'
+  category: 'Border Radiuses'
+  type: 'BorderRadius'
 - name: 'radius-regular'
   value: '8'
-  category: 'Border Radii'
+  category: 'Border Radiuses'
+  type: 'BorderRadius'
 
 

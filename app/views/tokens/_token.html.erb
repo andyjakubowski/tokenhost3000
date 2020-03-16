@@ -1,15 +1,7 @@
 <div class="token">
   <div class="token__content">
-    <div class="token__content-visual token__content-visual_<%= modifier_for_visual(token) %>" 
-         style="<%= styles_for_visual(token) %>">
-      <% case token.type %>
-      <% when 'FontSize' %>
-        Waves flung themselves at the blue evening.
-      <% when 'Spacing' %>
-        <% 10.times do %>
-          <div class="token__content-visual-box"></div>
-        <% end %>
-      <% end %>
+    <div class="token__visual">
+      <%= render partial_name(token), token: token %>
     </div>
     <div class="token__content-labels">
       <h3 class="token__value"><%= token.value %></h3>

@@ -40,7 +40,7 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://andy-capstone-week-05.herokuapp.com/cable'
+  config.action_cable.url = 'wss://andy-capstone-week-06.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = [
     'http://andy-capstone-week-06.herokuapp.com',
     'https://andy-capstone-week-06.herokuapp.com',
@@ -63,7 +63,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "capstone_week_05_production"
+  # config.active_job.queue_name_prefix = "capstone_week_06_production"
 
   config.action_mailer.perform_caching = false
 

@@ -1,0 +1,15 @@
+.token-visual-spacing {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 16px);
+  }
+
+  &__box {
+    background-color: var(--color-background-inverse);
+    height: 16px;
+  }
+}

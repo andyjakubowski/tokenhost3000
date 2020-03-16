@@ -1,31 +1,54 @@
 .token {
 
+  &__visual {
+    background-color: var(--color-background-canvas);
+    height: 96px;
+    margin-bottom: var(--padding-small);
+
+    &_font-size {
+      background-color: transparent;
+      overflow: hidden;
+    }
+
+    &-spacing-box {
+      background-color: var(--color-text-tertiary);
+    }
+
+    &_spacing {
+      background-color: transparent;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 32px);
+      grid-template-rows: repeat(auto-fit, 32px);
+    }
+
+    &_border-radius {
+      display: flex;
+    }
+
+    &-radius-box {
+      background-color: var(--color-text-tertiary);
+
+      &_small {
+        width: 24px;
+        height: 24px;
+      }
+
+      &_medium {
+        width: 48px;
+        height: 48px;
+      }
+
+      &_large {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+
   &__content {
     // display: flex;
 
-    &-visual {
-      background-color: #E9F9FF;
-      height: 96px;
-      margin-bottom: var(--padding-small);
-
-      &-box {
-        background-color: var(--color-text-tertiary);
-      }
-
-      &_font-size {
-        background-color: transparent;
-        overflow: hidden;
-      }
-
-      &_spacing {
-        background-color: transparent;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, 32px);
-        grid-template-rows: repeat(auto-fit, 32px);
-      }
-
-      
-    }
+    
   }
 
   &__value {

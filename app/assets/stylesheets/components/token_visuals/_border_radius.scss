@@ -1,0 +1,32 @@
+.token-visual-border-radius {
+  height: 100%;
+  width: 100%;
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__box {
+    background-color: var(--color-background-inverse);
+    border-radius: inherit;
+
+    &_small {
+      height: 32px;
+      width: 32px;
+    }
+
+    &_medium {
+      height: 48px;
+      width: 48px;
+    }
+
+    &_large {
+      height: 64px;
+      width: 64px;
+    }
+
+  }
+}
