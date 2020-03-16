@@ -11,7 +11,7 @@
 
   <div class="form__input">
     <%= form.label :type, class: 'form__label' %><br>
-    <%= form.collection_select(:type, [Color], :name, :name, include_blank: 'No Type') %>
+    <%= form.collection_select(:type, token_types, :name, :name, include_blank: 'No Type') %>
   </div>
 
   <div class="form__input">

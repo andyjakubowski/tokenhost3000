@@ -1,0 +1,2 @@
+class FontSize < Token
+end
