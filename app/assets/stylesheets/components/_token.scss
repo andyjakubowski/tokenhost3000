@@ -5,8 +5,17 @@
 
     &-visual {
       background-color: #E9F9FF;
-      height: 56px;
-      margin-bottom: var(--padding-small)
+      height: 96px;
+      margin-bottom: var(--padding-small);
+
+      &_font-size {
+        background-color: transparent;
+        overflow: hidden;
+
+        &::before {
+          content: 'Waves flung themselves at the blue evening.';
+        }
+      }
     }
   }
 
