@@ -42,11 +42,11 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   config.action_cable.url = 'wss://andy-capstone-week-05.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = [
-    'http://andy-capstone-week-05.herokuapp.com',
-    'https://andy-capstone-week-05.herokuapp.com',
-    /http:\/\/andy-capstone-week-05.herokuapp.*/
+    'http://andy-capstone-week-06.herokuapp.com',
+    'https://andy-capstone-week-06.herokuapp.com',
+    /http:\/\/andy-capstone-week-06.herokuapp.*/
   ]
-  config.token_api_url = 'https://andy-capstone-week-05.herokuapp.com'
+  config.token_api_url = 'https://andy-capstone-week-06.herokuapp.com'
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
