@@ -1,17 +1,24 @@
 <div class="home-page">
   <main class="home-page__container">
     <header class="home-page__header-container">
-      <div class="home-page__header-content">
-        <%= render 'layouts/notice' %>
-        <h1 class="home-page__title">TokenHub</h1>
-        <p class="home-page__subtitle">Power to designers</p>
-        <%= form_with model: @space, local: true do |form| %>
-          <%= form.submit class: "button" %>
-        <% end %>
+
+      <div class="home-page__header-art-container">
+        <canvas class="home-page__header-art-canvas glslCanvas" data-fragment="<%= sanitize File.read('app/views/home/shader.frag') %>" width="1280" height="720"></canvas>
       </div>
-      <p class="home-page__header-read-more-label">Read the story below</p>
+
+      <div class="home-page__header-content-container">
+        <div class="home-page__header-content-main">
+          <%= render 'layouts/notice' %>
+          <h1 class="home-page__title">TokenHub</h1>
+          <p class="home-page__subtitle">Power to designers</p>
+          <%= form_with model: @space, local: true do |form| %>
+            <%= form.submit class: "button" %>
+          <% end %>
+        </div>
+        <p class="home-page__header-content-footer">Read the story below</p>
+      </div>
+
     </header>
-    
     <article class="home-page__description">
       <%= sanitize @markdown.render(File.read('app/views/home/_readme.md')) %>
     </article>

@@ -1,31 +1,38 @@
 .home-page {
 
-  &__container {
-    // width: 100vw;
-    // height: 100vh;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // padding-bottom: var(--padding-large);
-  }
-
   &__header {
 
     &-container {
       height: 100vh;
-      background-color: var(--color-background-inverse);
       color: var(--color-text-inverse-primary);
     }
+
+    &-art-container {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -10;
+    }
+
+    &-art-canvas {
+      height: 100%;
+      width: 100%;
+    }
     
-    &-content {
+    &-content-container {
+      height: 100%;
+    }
+
+    &-content-main {
       align-items: center;
       justify-content: center;
       display: flex;
       flex-direction: column;
       height: 90%;
+      width: 100%;
     }
 
-    &-read-more-label {
+    &-content-footer {
       height: 10%;
       text-align: center;
       color: var(--color-text-inverse-tertiary);
