@@ -3,6 +3,6 @@ class Token < ApplicationRecord
   belongs_to :category, optional: true
 
   def self.types
-    [Color, FontSize]
+    [Color, FontSize, Spacing]
   end
 end

@@ -8,14 +8,23 @@
       height: 96px;
       margin-bottom: var(--padding-small);
 
+      &-box {
+        background-color: var(--color-text-tertiary);
+      }
+
       &_font-size {
         background-color: transparent;
         overflow: hidden;
-
-        &::before {
-          content: 'Waves flung themselves at the blue evening.';
-        }
       }
+
+      &_spacing {
+        background-color: transparent;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 32px);
+        grid-template-rows: repeat(auto-fit, 32px);
+      }
+
+      
     }
   }
 

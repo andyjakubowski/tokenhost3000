@@ -3,19 +3,21 @@ module TokensHelper
     Token.types
   end
 
-  def classes_for_visual(token)
-    classString = "token__content-visual token__content-visual_"
+  def super_weird(token)
+    "Indeed"
+  end
 
+  def modifier_for_visual(token)
     case token.type
     when 'Color'
-      modifier = 'color'
+      'color'
     when 'FontSize'
-      modifier = 'font-size'
+      'font-size'
+    when 'Spacing'
+      'spacing'
     else
-      modifier = ''
+      ''
     end
-
-    classString + modifier
   end
 
   def styles_for_visual(token)
@@ -24,6 +26,8 @@ module TokensHelper
       "background-color: #{token.value};"
     when 'FontSize'
       "font-size: #{token.value}px;"
+    when 'Spacing'
+      "grid-gap: #{token.value}px; gap: #{token.value}px;"
     else
       ''
     end

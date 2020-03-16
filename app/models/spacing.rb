@@ -1,0 +1,2 @@
+class Spacing < Token
+end
