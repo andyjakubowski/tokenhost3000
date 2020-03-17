@@ -1,4 +1,5 @@
 class TokensController < ApplicationController
+  before_action :check_space_expiration
   before_action :set_list, only: [:index, :create]
 
   def index
@@ -49,6 +50,24 @@ class TokensController < ApplicationController
   end
 
   private
+
+    def check_space_expiration
+      token = Token.find_by(id: params[:id])
+
+      if token
+        list = token.list
+      else
+        list = List.find_by(id: params[:list_id])
+      end
+
+      space = list.space if list
+
+      if space
+        render 'spaces/expired' if space.expired?
+      else
+        render 'other/404'
+      end
+    end
 
     def set_list
       @list = List.find(params[:list_id])

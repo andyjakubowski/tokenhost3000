@@ -1,11 +1,7 @@
 class ListsController < ApplicationController
+  before_action :check_space_expiration
   before_action :set_list, only: [:show, :edit, :update, :destroy, :css, :example]
   layout 'example', only: [:example]
-
-  def index
-    @lists = List.all
-    @categories = Category.all
-  end
 
   def show
     @tokensByCategory = groupTokens(@list)
@@ -70,6 +66,22 @@ class ListsController < ApplicationController
   private
     def set_list
       @list = List.find(params[:id])
+    end
+
+    def check_space_expiration
+      list = List.find_by(id: params[:id])
+
+      if list
+        space = list.space
+      else
+        space = Space.find_by(slug: params[:space_slug]) || nil
+      end
+
+      if space
+        render 'spaces/expired' if space.expired?
+      else
+        render 'other/404'
+      end
     end
 
     def list_params

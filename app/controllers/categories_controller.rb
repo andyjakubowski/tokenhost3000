@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :check_space_expiration
+
   def index
     @categories = Category.all
 
@@ -68,6 +70,22 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+    def check_space_expiration
+      category = Category.find_by(id: params[:id])
+
+      if category
+        space = category.space
+      else
+        space = Space.find_by(slug: params[:space_slug]) || nil
+      end
+
+      if space
+        render 'spaces/expired' if space.expired?
+      else
+        render 'other/404'
+      end
+    end
 
     def category_params
       params.require(:category).permit(:name, :space_slug)
