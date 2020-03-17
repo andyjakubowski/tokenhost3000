@@ -1,6 +1,7 @@
 <div class="space-page">
   <h2 class="space-page__title">Space</h2>
   <h3 class="space-page__subtitle"><%= @space.slug %></h3>
+  <p class="space-page__expiration_label"><%= expiration_string(@space) %></p>
 
   <% if @space.lists.empty? %>
     <p class="space-page__no-tokens-text">There are no token lists yet. Go ahead and create the first one.</p>

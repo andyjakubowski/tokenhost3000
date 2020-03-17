@@ -2,11 +2,27 @@ class Space < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :categories, dependent: :destroy
 
+  EXPIRATION_TIME_HOURS = 32
+  SECONDS_IN_AN_HOUR = 3600
+
   before_create :set_slug
   after_create :create_sample_categories, :create_sample_lists
 
   def to_param
     slug
+  end
+
+  def expired?
+    elapsed_seconds = Time.now - self.created_at
+    total_seconds = EXPIRATION_TIME_HOURS * SECONDS_IN_AN_HOUR
+    elapsed_time > expiration_time
+  end
+
+  def hours_until_expiration
+    total_seconds = EXPIRATION_TIME_HOURS * SECONDS_IN_AN_HOUR
+    elapsed_seconds = Time.now - self.created_at
+    hours = (total_seconds - elapsed_seconds) / SECONDS_IN_AN_HOUR
+    hours.floor
   end
 
   private
