@@ -99,7 +99,7 @@ class ListsController < ApplicationController
     def groupTokens(list)
       result = []
 
-      list.space.categories.order('id').each do |category|
+      list.space.categories.order('order_id').each do |category|
         object = {}
         object['category'] = category
         object['tokens'] = category.tokens.where(list_id: list.id).order('LOWER(name)')
