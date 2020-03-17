@@ -6,8 +6,10 @@ class SpacesController < ApplicationController
   def show
     @space = Space.find_by slug: params[:slug]
 
-    if (!@space)
+    if !@space
       render 'spaces/not_found'
+    elsif @space.expired?
+      render 'spaces/expired'
     end
   end
 
