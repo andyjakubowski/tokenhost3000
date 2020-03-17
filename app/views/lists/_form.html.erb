@@ -16,5 +16,10 @@
     <%= form.text_field :name, placeholder: 'Unicorn Tokens', class: 'form__field' %>
   </div>
 
+  <div class="form__input">
+    <%= form.label :description, class: 'form__label' %>
+    <%= form.text_area :description, class: 'form__field form__field_multiline' %>
+  </div>
+
   <%= form.submit nil, class: 'form__submit-button button' %>
 <% end %>
