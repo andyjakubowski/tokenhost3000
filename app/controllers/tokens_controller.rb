@@ -63,9 +63,17 @@ class TokensController < ApplicationController
       space = list.space if list
 
       if space
-        render 'spaces/expired' if space.expired?
+        if space.expired?
+          respond_to do |format|
+            format.html { render 'spaces/expired', status: :gone }
+            format.json { render 'spaces/expired', status: :gone }
+          end
+        end
       else
-        render 'other/404'
+        respond_to do |format|
+          format.html { render 'other/404', status: :not_found }
+          format.json { render 'other/404', status: :not_found }
+        end
       end
     end
 

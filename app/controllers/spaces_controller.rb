@@ -7,12 +7,6 @@ class SpacesController < ApplicationController
 
   def show
     @space = Space.find_by slug: params[:slug]
-
-    if !@space
-      render 'spaces/not_found'
-    elsif @space.expired?
-      render 'spaces/expired'
-    end
   end
 
   def create
@@ -40,9 +34,17 @@ class SpacesController < ApplicationController
       space = Space.find_by slug: params[:slug]
 
       if space
-        render 'spaces/expired' if space.expired?
+        if space.expired?
+          respond_to do |format|
+            format.html { render 'spaces/expired', status: :gone }
+            format.json { render 'spaces/expired', status: :gone }
+          end
+        end
       else
-        render 'other/404'
+        respond_to do |format|
+          format.html { render 'other/404', status: :not_found }
+          format.json { render 'other/404', status: :not_found }
+        end
       end
     end
 end
