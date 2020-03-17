@@ -49,13 +49,15 @@ class Space < ApplicationRecord
     end
 
     def create_sample_lists
-      create_list('Sample Light', 'light.yml')
-      create_list('Sample Dark', 'dark.yml')
+      lists = YAML::load_file("db/seeds/lists.yml")
+
+      lists.each do |seed|
+        create_list(seed['name'], seed['description'], seed['tokens'])
+      end
     end
 
-    def create_list(list_name, filename)
-      list = self.lists.new(name: list_name)
-      tokens = YAML::load_file("db/seeds/tokens/#{filename}")
+    def create_list(name, description, tokens)
+      list = self.lists.new(name: name, description: description)
 
       tokens.each do |token|
         category = self.categories.find_by(name: token['category'])
