@@ -15,7 +15,7 @@ class SpacesController < ApplicationController
     @space = Space.new
 
     if @space.save
-      redirect_to @space, notice: 'Space created. It will self-destruct in about 48 hours. Enjoy.'
+      redirect_to @space, notice: 'Space created. Enjoy!'
     else
       render 'home/show'
     end
