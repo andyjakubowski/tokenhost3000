@@ -15,8 +15,8 @@ void main(){
   for (int i = 0; i < AMOUNT; i++){
     len = length(vec2(coord.x, coord.y));
 
-    coord.x = coord.x - cos(coord.y + sin(len)) + cos(u_time / 50.0);
-    coord.y = coord.y + sin(coord.x + cos(len)) + sin(u_time / 55.0);
+    coord.x = coord.x - cos(coord.y + sin(len)) + cos(u_time / 20.0);
+    coord.y = coord.y + sin(coord.x + cos(len)) + sin(u_time / 25.0);
   }
 
   // gl_FragColor = vec4(cos(len * 2.0), cos(len * 3.0), cos(len * 1.0), 1.0);
