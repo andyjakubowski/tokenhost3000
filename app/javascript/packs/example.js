@@ -14,6 +14,14 @@ const App = (function App() {
     return Number(document.querySelector('meta[name="list-id"]').content) || null;
   };
 
+  const listSpecificStyleSheet = function listSpecificStyleSheet() {
+    const styleSheetsArray = Array.from(document.styleSheets);
+
+    return styleSheetsArray.filter((sheet) => (
+      sheet.ownerNode.classList.contains('list-specific-stylesheet')
+    ))[0];
+  };
+
   const getLists = function getLists() {
     return fetch(`${API_URL}/${SPACE_NAME}.json`)
       .then((response) => response.json());
@@ -39,13 +47,18 @@ const App = (function App() {
     selectList(li);
 
     getTokens(li.dataset.id)
-      .then((tokens) => updateStyles(tokens));
+      .then((tokens) => {
+        resetStyles();
+        updateStyles(tokens);
+      });
+  };
+
+  const resetStyles = function resetStyles() {
+    listSpecificStyleSheet().disabled = true;
+    root.style = '';
   };
 
   const updateStyles = function updateStyles(tokens) {
-
-    root.style = '';
-
     tokens.forEach(({ name, value }, index) => {
       root.style.setProperty(`--remote-${name}`, value);
     });

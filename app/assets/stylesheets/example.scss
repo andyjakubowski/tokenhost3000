@@ -51,15 +51,19 @@ table {
 
 :root {
 
-  --color-text-primary: var(--remote-color-text-primary, black);
-  --color-text-secondary: var(--remote-color-text-secondary, gray);
-  --color-text-tertiary: var(--remote-color-text-tertiary, gray);
-  --color-text-inverse-primary: var(--remote-color-text-inverse-primary, white);
-  --color-background-canvas: var(--remote-color-background-canvas, lightgray);
-  --color-background-surface: var(--remote-color-background-surface, lightgreen);
-  --color-background-inverse: var(--remote-color-background-inverse, black);
-  --color-interactive-primary: var(--remote-color-interactive-primary, red);
-  --color-interactive-inverse: var(--remote-color-interactive-inverse, lime);
+  --default-color: black;
+  --default-background-color: white;
+  --default-interactive-color: blue;
+
+  --color-text-primary: var(--remote-color-text-primary, var(--default-color));
+  --color-text-secondary: var(--remote-color-text-secondary, var(--default-color));
+  --color-text-tertiary: var(--remote-color-text-tertiary, var(--default-color));
+  --color-text-inverse-primary: var(--remote-color-text-inverse-primary, var(--default-color));
+  --color-background-canvas: var(--remote-color-background-canvas, var(--default-background-color));
+  --color-background-surface: var(--remote-color-background-surface, var(--default-background-color));
+  --color-background-inverse: var(--remote-color-background-inverse, var(--default-background-color));
+  --color-interactive-primary: var(--remote-color-interactive-primary, var(--default-interactive-color));
+  --color-interactive-inverse: var(--remote-color-interactive-inverse, var(--default-interactive-color));
 
   --font-size-extra-large: calc(var(--remote-font-size-extra-large, 48) * 1px);
   --font-size-large: calc(var(--remote-font-size-large, 32) * 1px);
@@ -79,8 +83,8 @@ table {
 
   --font-size-h1: var(--font-size-extra-large, 32);
 
-  --page-background: var(--color-background-canvas, lightgray);
-  --card-background: var(--color-background-surface, white);
+  --page-background: var(--color-background-canvas);
+  --card-background: var(--color-background-surface);
 
   --grid-gap-regular: var(--spacing-regular);
 

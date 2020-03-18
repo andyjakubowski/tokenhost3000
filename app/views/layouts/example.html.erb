@@ -11,7 +11,7 @@
     <meta name="api-url" content="<%= Rails.configuration.token_api_url %>">
 
     <%= stylesheet_link_tag 'example', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag css_list_url(@list), 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag css_list_url(@list), class: 'list-specific-stylesheet', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'example', 'data-turbolinks-track': 'reload' %>
   </head>
 
