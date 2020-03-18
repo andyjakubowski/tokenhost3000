@@ -24,7 +24,8 @@
     <% end %>
     <div class="list-page__edit-name-pill">
       <div class="pill-actions">
-        <%= link_to 'Edit list', edit_list_path(@list), class: 'pill-actions__item' %>
+        <%= link_to 'Edit', edit_list_path(@list), class: 'pill-actions__item' %>
+        <%= link_to 'Delete', list_path(@list), method: :delete, data: { confirm: 'Delete list? This can’t be undone.' }, class: 'pill-actions__item' %>
       </div>
     </div>
   </header>
