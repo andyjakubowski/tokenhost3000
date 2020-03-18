@@ -68,7 +68,6 @@ class Space < ApplicationRecord
 
         token.delete 'category'
       end
-      byebug
       sample_list.tokens.new(tokens)
       sample_list.save
       sample_list.set_example_project_url

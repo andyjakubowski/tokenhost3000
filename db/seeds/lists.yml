@@ -1,5 +1,5 @@
 ---
-- name: 'Superhero Cards — Light Theme'
+- name: 'Example: Light'
   description: 'This sample list is included with every new space that gets created.'
   tokens:
     - name: 'color-text-primary'
@@ -98,7 +98,7 @@
       value: '8'
       category: 'Border Radiuses'
       type: 'BorderRadius'
-- name: 'Superhero Cards — Dark Theme'
+- name: 'Example: Dark'
   description: 'This sample list is included with every new space that gets created.'
   tokens:
     - name: 'color-text-primary'
@@ -197,6 +197,6 @@
       value: '8'
       category: 'Border Radiuses'
       type: 'BorderRadius'
-- name: 'Superhero Cards — Blank Theme'
+- name: 'Example: Blank'
   description: 'This empty list lets you preview the example project with default styling and compare it to the other themes.'
   tokens: []
