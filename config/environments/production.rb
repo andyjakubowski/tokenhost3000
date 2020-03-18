@@ -47,6 +47,7 @@ Rails.application.configure do
     /http:\/\/andy-capstone-week-06.herokuapp.*/
   ]
   config.token_api_url = 'https://andy-capstone-week-06.herokuapp.com'
+  routes.default_url_options[:host] = 'https://andy-capstone-week-06.herokuapp.com'
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true

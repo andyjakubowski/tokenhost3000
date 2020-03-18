@@ -93,7 +93,7 @@ class ListsController < ApplicationController
     end
 
     def list_params
-      params.require(:list).permit(:name, :space_slug, :description)
+      params.require(:list).permit(:name, :space_slug, :description, :project_url)
     end
 
     def groupTokens(list)

@@ -17,8 +17,15 @@
   </div>
 
   <div class="form__input">
-    <%= form.label :description, class: 'form__label' %>
+    <%= form.label :description, 'Description (optional)', class: 'form__label' %>
     <%= form.text_area :description, class: 'form__field form__field_multiline' %>
+  </div>
+
+  <div class="form__input">
+    <%= form.label :project_url, 'Project URL (optional)', class: 'form__label' %>
+    <%= form.text_field :project_url, 
+      placeholder: 'http://example.com',
+      class: 'form__field' %>
   </div>
 
   <%= form.submit nil, class: 'form__submit-button button' %>

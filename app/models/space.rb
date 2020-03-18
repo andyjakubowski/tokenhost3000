@@ -57,7 +57,7 @@ class Space < ApplicationRecord
     end
 
     def create_list(name, description, tokens)
-      list = self.lists.new(name: name, description: description)
+      sample_list = self.lists.new(name: name, description: description)
 
       tokens.each do |token|
         category = self.categories.find_by(name: token['category'])
@@ -68,8 +68,9 @@ class Space < ApplicationRecord
 
         token.delete 'category'
       end
-      list.tokens.new(tokens)
-      list.save
-      list.generate_css
+      sample_list.tokens.new(tokens)
+      sample_list.save
+      sample_list.set_example_project_url
+      sample_list.generate_css
     end
 end

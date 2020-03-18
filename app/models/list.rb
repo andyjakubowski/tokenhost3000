@@ -21,4 +21,9 @@ class List < ApplicationRecord
 
     ActionCable.server.broadcast("space_#{self.space.slug}", { list_id: self.id, tokens: self.tokens })
   end
+
+  def set_example_project_url
+    self.project_url = Rails.application.routes.url_helpers.example_list_url(self)
+    self.save
+  end
 end

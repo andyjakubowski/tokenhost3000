@@ -4,8 +4,20 @@
   </nav>
   <header class="list-page__header">
     <h1 class="list-page__title"><%= @list.name %></h1>
-    <p class="list-page__token-count">
-      <%= @list.tokens.size %> <%= 'token'.pluralize @list.tokens.size %>
+    <p class="list-page__meta-info">
+      <span class="list-page__token-count"><%= @list.tokens.size %> <%= 'token'.pluralize @list.tokens.size %></span>
+      <% if @list.stylesheet.attached? %>
+        <span class="list-page__meta-info-separator">·</span>
+        <span class="list-page__meta-info-css">
+          <%= link_to 'Get CSS', css_list_url(@list) %>
+        </span>
+      <% end %>
+      <% if @list.project_url.present? %>
+        <span class="list-page__meta-info-separator">·</span>
+        <span class="list-page__meta-info-project-url">
+          <%= link_to 'Open Project', @list.project_url, target: '_blank' %>
+        </span>
+      <% end %>
     </p>
     <% if @list.description %>
       <p class="list-page__description"><%= @list.description %></p>
@@ -15,12 +27,6 @@
         <%= link_to 'Edit list', edit_list_path(@list), class: 'pill-actions__item' %>
       </div>
     </div>
-    <% if @list.stylesheet.attached? %>
-      <p>Download CSS: <%= link_to nil, css_list_url(@list) %></p>
-    <% end %>
-    <% if @list.stylesheet.attached? %>
-      <p>Example: <%= link_to nil, example_list_url(@list) %></p>
-    <% end %>
   </header>
 
   <div class="list-page__add-token-section">

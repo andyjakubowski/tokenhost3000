@@ -20,9 +20,21 @@
     margin-bottom: var(--padding-small);
   }
 
+  &__meta-info {
+    margin-bottom: var(--padding-regular);
+  }
+
+  &__meta-info-separator {
+    color: var(--color-text-tertiary);
+    padding: 0 var(--padding-tiny);
+  }
+
+  &__meta-info-project-url {
+    color: var(--color-text-secondary);
+  }
+
   &__token-count {
     color: var(--color-text-secondary);
-    margin-bottom: var(--padding-regular);
   }
 
   &__token-category {
