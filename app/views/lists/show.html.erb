@@ -15,7 +15,7 @@
       <% if @list.project_url.present? %>
         <span class="list-page__meta-info-separator">·</span>
         <span class="list-page__meta-info-project-url">
-          <%= link_to 'Open Project', @list.project_url, target: '_blank' %>
+          <a href="<%= @list.project_url %>", target="_blank">Open Project</a>
         </span>
       <% end %>
     </p>
