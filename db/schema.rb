@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_18_082323) do
+ActiveRecord::Schema.define(version: 2020_03_18_101753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_082323) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "A Beautiful Yet Unnamed List", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "space_id", default: 1, null: false

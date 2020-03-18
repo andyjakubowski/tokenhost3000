@@ -25,7 +25,7 @@ class ListsController < ApplicationController
         format.html { redirect_to @list, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
-        format.html { render :new }
+        format.html { render 'new' }
       end
     end
   end
@@ -36,7 +36,7 @@ class ListsController < ApplicationController
         format.html { redirect_to @list, notice: 'List was successfully updated.' }
         format.json { render :show, status: :ok, location: @list }
       else
-        format.html { render :edit }
+        format.html { render :show }
       end
     end
   end

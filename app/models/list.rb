@@ -3,6 +3,8 @@ class List < ApplicationRecord
   belongs_to :space
   has_one_attached :stylesheet
 
+  validates :name, presence: true
+
   def generate_css
     array = []
 
