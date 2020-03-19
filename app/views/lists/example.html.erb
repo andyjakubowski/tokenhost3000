@@ -1,2 +1,25 @@
-<h1>Hello World</h1>
-<p><%= "I know it’s you #{@list.name}!" %></p>
+<header class="page-header">
+  <h1>🦸🏽‍♀️🦸🏿‍♂️ Superhero Cards</h1>
+</header>
+<main>
+  <header>
+    <h2 class="text-secondary"><%= Faker::Movies::StarWars.quote %></h2>
+    <p class="text-tertiary"><%= Faker::Movies::StarWars.wookiee_sentence %></p>
+    <button class="button-primary" id="light-theme-button">Add a Card</button>
+    <button class="button-secondary" id="dark-theme-button">Ask a Question</button>
+  </header>
+  <section>
+    <ul class="superhero-cards-wrapper">
+      <% 50.times do %>
+        <li class="superhero-card">
+          <h3 class="text-primary"><%= Faker::Superhero.name %></h3>
+          <h4 class="text-secondary"><%= Faker::Superhero.power %></h4>
+          <p class="text-tertiary"><%= Faker::Address.city %></p>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</main>
+<footer>
+  <p><%= Faker::Books::Dune.quote %></p>
+</footer>

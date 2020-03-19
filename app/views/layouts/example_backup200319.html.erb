@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Example</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="space" content="<%= @list.space.slug %>">
+    <meta name="list-id" content="<%= @list.id %>">
+    <meta name="api-url" content="<%= Rails.configuration.token_api_url %>">
+
+    <%= stylesheet_link_tag 'example', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag css_list_url(@list), class: 'list-specific-stylesheet', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'example', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="token-list-switcher">
+      <ul class="token-list-switcher__lists">
+      </ul>
+    </div>
+    <header class="page-header">
+      <h1>🦸🏽‍♀️🦸🏿‍♂️ Superhero Cards</h1>
+    </header>
+    <main>
+      <header>
+        <h2 class="text-secondary"><%= Faker::Movies::StarWars.quote %></h2>
+        <p class="text-tertiary"><%= Faker::Movies::StarWars.wookiee_sentence %></p>
+        <button class="button-primary" id="light-theme-button">Add a Card</button>
+        <button class="button-secondary" id="dark-theme-button">Ask a Question</button>
+      </header>
+      <section>
+        <ul class="superhero-cards-wrapper">
+          <% 50.times do %>
+            <li class="superhero-card">
+              <h3 class="text-primary"><%= Faker::Superhero.name %></h3>
+              <h4 class="text-secondary"><%= Faker::Superhero.power %></h4>
+              <p class="text-tertiary"><%= Faker::Address.city %></p>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p><%= Faker::Books::Dune.quote %></p>
+    </footer>
+  </body>
+</html>
