@@ -2,7 +2,7 @@ class Space < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :categories, dependent: :destroy
 
-  EXPIRATION_TIME_HOURS = 48
+  EXPIRATION_TIME_HOURS = 24
   SECONDS_IN_AN_HOUR = 3600
 
   before_create :set_slug

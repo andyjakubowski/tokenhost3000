@@ -4,11 +4,8 @@
     <title>Example</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="space" content="<%= @list.space.slug %>">
-    <meta name="list-id" content="<%= @list.id %>">
-    <meta name="api-url" content="<%= Rails.configuration.token_api_url %>">
+    <meta id="tokenhub-widget" data-space="<%= @list.space.slug %>" data-api="<%= Rails.configuration.token_api_url %>"></script>
     <%= stylesheet_link_tag 'example', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'example', 'data-turbolinks-track': 'reload' %>
   </head>
