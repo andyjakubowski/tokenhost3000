@@ -20,8 +20,6 @@ class List < ApplicationRecord
       filename: 'styles.css',
       content_type: 'text/css'
     )
-
-    ActionCable.server.broadcast("space_#{self.space.slug}", { list_id: self.id, tokens: self.tokens })
   end
 
   def set_example_project_url
