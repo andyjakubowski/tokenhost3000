@@ -28,6 +28,11 @@ class ListsController < ApplicationController
         format.html { render 'new' }
       end
     end
+
+    ActionCable.server.broadcast("space_#{@space.slug}", {
+      message_type: 'list_create',
+      list: @list
+    })
   end
 
   def update
@@ -47,6 +52,11 @@ class ListsController < ApplicationController
       format.html { redirect_to space_url(@list.space), notice: 'List deleted.' }
       format.json { head :no_content }
     end
+
+    ActionCable.server.broadcast("space_#{@list.space.slug}", {
+      message_type: 'list_destroy',
+      list_id: @list.id
+    })
   end
 
   def css
