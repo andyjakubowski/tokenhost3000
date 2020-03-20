@@ -17,6 +17,11 @@ class TokensController < ApplicationController
         @list.generate_css
         format.html { redirect_to list_path(@list), notice: 'Token created.' }
         format.json { render :show, status: :created, location: token_url(@token) }
+
+        ActionCable.server.broadcast("space_#{@list.space.slug}", {
+          message_type: 'token_create',
+          token: @token
+        })
       else
         format.html { render 'lists/show' }
         format.json { render json: @token.errors, status: :unprocessable_entity }
@@ -32,6 +37,11 @@ class TokensController < ApplicationController
         @token.list.generate_css
         format.html { redirect_to @token.list, notice: 'Token updated.' }
         format.json { render :show, status: :ok, location: token_url(@token) }
+
+        ActionCable.server.broadcast("space_#{@token.list.space.slug}", {
+          message_type: 'token_update',
+          token: @token
+        })
       else
         format.html { render 'edit' }
       end
@@ -47,6 +57,11 @@ class TokensController < ApplicationController
       format.html { redirect_to @token.list, notice: 'Token deleted.' }
       format.json { head :no_content }
     end
+
+    ActionCable.server.broadcast("space_#{@token.list.space.slug}", {
+      message_type: 'token_destroy',
+      token: @token
+    })
   end
 
   private
