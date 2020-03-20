@@ -24,15 +24,15 @@ class ListsController < ApplicationController
       if @list.save
         format.html { redirect_to @list, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
+
+        ActionCable.server.broadcast("space_#{@space.slug}", {
+          message_type: 'list_create',
+          list: @list
+        })
       else
         format.html { render 'new' }
       end
     end
-
-    ActionCable.server.broadcast("space_#{@space.slug}", {
-      message_type: 'list_create',
-      list: @list
-    })
   end
 
   def update
@@ -40,15 +40,15 @@ class ListsController < ApplicationController
       if @list.update(list_params)
         format.html { redirect_to @list, notice: 'List was successfully updated.' }
         format.json { render :show, status: :ok, location: @list }
+
+        ActionCable.server.broadcast("space_#{@list.space.slug}", {
+          message_type: 'list_update',
+          list: @list
+        })
       else
         format.html { render :show }
       end
     end
-
-    ActionCable.server.broadcast("space_#{@list.space.slug}", {
-      message_type: 'list_update',
-      list: @list
-    })
   end
 
   def destroy
