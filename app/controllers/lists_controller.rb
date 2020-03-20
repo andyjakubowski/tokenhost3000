@@ -44,6 +44,11 @@ class ListsController < ApplicationController
         format.html { render :show }
       end
     end
+
+    ActionCable.server.broadcast("space_#{@list.space.slug}", {
+      message_type: 'list_update',
+      list: @list
+    })
   end
 
   def destroy
