@@ -5,9 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta id="tokenhub-widget" data-space="<%= @list.space.slug %>" data-api="<%= Rails.configuration.token_api_url %>"></script>
+    <meta id="tokenhub-widget" data-space="<%= @list.space.slug %>" data-api="<%= Rails.configuration.token_api_url %>" data-cable="<%= Rails.configuration.action_cable.url %>"></script>
     <%= stylesheet_link_tag 'example', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'example', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/gh/andyjakubowski/tm3000-widget@0.1-alpha/widget.js" id="tokenhub-widget" data-space="<%= @list.space.slug %>" data-api="<%= Rails.configuration.token_api_url %>" data-cable="<%= Rails.configuration.action_cable.url %>" data-turbolinks-track="reload"></script>
   </head>
 
   <body>
