@@ -9,7 +9,7 @@
       <div class="home-page__header-content-container">
         <div class="home-page__header-content-main">
           <%= render 'layouts/notice' %>
-          <h1 class="home-page__title">TokenHub</h1>
+          <h1 class="home-page__title">This Token Thing 2020</h1>
           <p class="home-page__subtitle">Power to designers</p>
           <%= form_with model: @space, local: true do |form| %>
             <%= form.submit class: "button" %>
@@ -19,8 +19,10 @@
       </div>
 
     </header>
-    <article class="home-page__description">
-      <%= sanitize @markdown.render(File.read('app/views/home/_readme.md')) %>
-    </article>
+    <div class="home-page__article-wrapper">
+      <article class="home-page__article-content">
+        <%= sanitize @markdown.render(File.read('app/views/home/_case_study.md')) %>
+      </article>
+    </div>
   </main>
 </div>
