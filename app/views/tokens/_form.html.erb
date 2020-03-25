@@ -1,21 +1,21 @@
 <%= form_with model: model, scope: :token, url: form_url, local: true, class: 'form' do |form| %>
   <div class="form__input">
-    <%= form.label :name, class: 'form__label' %><br>
+    <%= form.label :name, class: 'form__label' %>
     <%= form.text_field :name, class: 'form__field' %>
   </div>
 
   <div class="form__input">
-    <%= form.label :value, class: 'form__label' %><br>
+    <%= form.label :value, class: 'form__label' %>
     <%= form.text_field :value, class: 'form__field' %>
   </div>
 
   <div class="form__input">
-    <%= form.label :type, class: 'form__label' %><br>
+    <%= form.label :type, class: 'form__label' %>
     <%= form.collection_select(:type, token_types, :name, :name, include_blank: 'No Type') %>
   </div>
 
   <div class="form__input">
-    <%= form.label :category_id, class: 'form__label' %><br>
+    <%= form.label :category_id, class: 'form__label' %>
     <%= form.collection_select(:category_id, list.space.categories, :id, :name, include_blank: 'No Category') %>
   </div>
 
