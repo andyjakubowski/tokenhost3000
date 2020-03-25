@@ -1,21 +1,32 @@
 <%= form_with model: model, scope: :token, url: form_url, local: true, class: 'form' do |form| %>
   <div class="form__input">
-    <%= form.label :name, class: 'form__label' %>
+    <div class="form__input-description">
+      <%= form.label :name, class: 'form__label' %>
+    </div>
     <%= form.text_field :name, class: 'form__field' %>
   </div>
 
   <div class="form__input">
-    <%= form.label :value, class: 'form__label' %>
+    <div class="form__input-description">
+      <%= form.label :value, class: 'form__label' %>
+      <p class="form__hint">Use any value your project can interpret. For example, any valid CSS value if you’re using CSS.</p>
+    </div>
     <%= form.text_field :value, class: 'form__field' %>
   </div>
 
   <div class="form__input">
-    <%= form.label :type, class: 'form__label' %>
+    <div class="form__input-description">
+      <%= form.label :type, class: 'form__label' %>
+      <p class="form__hint">Used to visualize tokens. Use any value if you don’t pick any type. For the color type, use valid CSS color values (hex code, rgba() etc.). FontSize, Spacing and BorderRadius values must be whole, unitless numbers (skip the “px”).</p>
+    </div>
     <%= form.collection_select(:type, token_types, :name, :name, include_blank: 'No Type') %>
   </div>
 
   <div class="form__input">
-    <%= form.label :category_id, class: 'form__label' %>
+    <div class="form__input-description">
+      <%= form.label :category_id, class: 'form__label' %>
+      <p class="form__hint">Groups tokens into sections. Does not affect the token in any other way.</p>
+    </div>
     <%= form.collection_select(:category_id, list.space.categories, :id, :name, include_blank: 'No Category') %>
   </div>
 

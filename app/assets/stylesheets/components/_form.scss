@@ -12,7 +12,15 @@
   &__label {
     @include text-style-subtitle2;
     cursor: pointer;
-    margin-bottom: var(--padding-tiny);
+  }
+
+  &__hint {
+    @include text-style-caption;
+    color: var(--color-text-secondary);
+  }
+
+  &__input-description {
+    margin-bottom: var(--padding-small);
   }
 
   &__field {
