@@ -1,4 +1,5 @@
 class TokensController < ApplicationController
+  before_action :set_space
   before_action :check_space_expiration
   before_action :set_list, only: [:index, :create]
 
@@ -12,6 +13,7 @@ class TokensController < ApplicationController
 
   def create
     @token = @list.tokens.new(token_params)
+    @token.space = @list.space
     respond_to do |format|
       if @token.save
         @list.generate_css
@@ -66,7 +68,7 @@ class TokensController < ApplicationController
 
   private
 
-    def check_space_expiration
+    def set_space
       token = Token.find_by(id: params[:id])
 
       if token
@@ -75,10 +77,12 @@ class TokensController < ApplicationController
         list = List.find_by(id: params[:list_id])
       end
 
-      space = list.space if list
+      @space = list ? list.space : nil
+    end
 
-      if space
-        if space.expired?
+    def check_space_expiration
+      if @space
+        if @space.expired?
           respond_to do |format|
             format.html { render 'spaces/expired', status: :gone }
             format.json { render 'spaces/expired', status: :gone }

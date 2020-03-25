@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :set_space
   before_action :check_space_expiration
 
   def index
@@ -71,17 +72,19 @@ class CategoriesController < ApplicationController
 
   private
 
-    def check_space_expiration
+    def set_space
       category = Category.find_by(id: params[:id])
 
       if category
-        space = category.space
+        @space = category.space
       else
-        space = Space.find_by(slug: params[:space_slug]) || nil
+        @space = Space.find_by(slug: params[:space_slug]) || nil
       end
+    end
 
-      if space
-        if space.expired?
+    def check_space_expiration
+      if @space
+        if @space.expired?
           respond_to do |format|
             format.html { render 'spaces/expired', status: :gone }
             format.json { render 'spaces/expired', status: :gone }
