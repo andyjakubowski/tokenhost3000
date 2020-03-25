@@ -52,4 +52,10 @@
   &__list-card-content {
     display: block;
   }
+
+  @media screen and (min-width: $mobile-threshold-width) {
+    &__actions {
+      max-width: $max-width-form-wide-screen;
+    }
+  }
 }

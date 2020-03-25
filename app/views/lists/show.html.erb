@@ -30,14 +30,14 @@
     </div>
   </header>
 
-  <div class="list-page__add-token-section">
+  <section class="list-page__add-token-section">
     <h2 class="list-page__add-token-section-title">Create a new token</h2>
     <div class="list-page__add-token-form">
       <%= render 'tokens/form', model: [@list, @list.tokens.new], list: @list, form_url: list_tokens_path(@list) %>
     </div>
-  </div>
+  </section>
 
-  <div class="list-page__tokens-section">
+  <section class="list-page__tokens-section">
     <% @tokensByCategory.each do |obj| %>
       <div class="list-page__token-category">
         <h2 class="list-page__token-category-title <%= 'list-page__token-category-title_empty' if obj['tokens'].empty? %>">
@@ -63,12 +63,12 @@
         </div>
       </div>
     <% end %>
-  </div>
+  </section>
 
-  <div class="list-page__add-category-section">
+  <section class="list-page__add-category-section">
     <h2 class="list-page__add-category-section-title">New category</h2>
     <div class="list-page__add-category-form">
       <%= render 'categories/form', model: [@space, @space.categories.new], category: @space.categories.new, list_id: @list.id %>
     </div>
-  </div>
+  </section>
 </div>

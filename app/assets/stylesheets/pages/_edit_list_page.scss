@@ -9,5 +9,9 @@
 
   &__form {
     margin-bottom: var(--padding-regular);
+
+    @media screen and (min-width: $mobile-threshold-width) {
+      max-width: $max-width-form-wide-screen;
+    }
   }
 }
