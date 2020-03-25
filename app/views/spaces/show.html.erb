@@ -1,23 +1,9 @@
 <div class="space-page">
   <header class="space-page__header">
-    <h2 class="space-page__title">Space</h2>
-    <h3 class="space-page__subtitle">Name: <%= @space.slug %></h3>
+    <h1 class="space-page__title">Space</h1>
+    <h3 class="space-page__subtitle"><%= @space.slug %></h3>
+    <p class="space-page__info-label"><%= expiration_string(@space) %></p>
   </header>
-
-  <section class="space-page__section">
-    <h3>Access link</h3>
-    <p class="space-page__info-label"><%= link_to nil, space_url(@space) %></p>
-    <p class="space-page__info-label">
-      Anyone with this link can access the space until it expires.
-    </p>
-  </section>
-
-  <section class="space-page__section">
-    <h3><%= expiration_string(@space) %></h3>
-    <p class="space-page__info-label">
-      tokenhost:3000 is a demo meant for experimentation. All spaces expire and can’t be accessed again after about 48 hours.
-    </p>
-  </section>
 
   <section class="space-page__section">
     <% if @space.lists.empty? %>
@@ -36,5 +22,59 @@
     <div class="space-page__actions actions">
       <%= link_to 'Create list', new_space_list_path(@space), class: 'actions__item' %>
     </div>
+  </section>
+
+  <section class="space-page__section space-page__usage-section">
+    <h2 class="space-page__usage-section-title">Usage & FAQ</h2>
+
+    <section class="space-page__section">
+      <h3>Deliver tokens from one particular list as CSS</h3>
+      <p class="space-page__info-paragraph">
+        Every list of tokens comes with a link to a CSS file. Every token you create in Tokenhost 3000 is applied as a custom CSS property set on the root (HTML) element.
+      </p>
+
+      <p class="space-page__info-paragraph">
+        So the moment you link to this CSS file from your HTML, you can access all of the tokens by their names.
+      </p>
+    </section>
+
+    <section class="space-page__section">
+      <h3>Apply CSS styles at runtime</h3>
+      <p class="space-page__info-paragraph">
+        Include the following script tag inside the head tag of your HTML. It will render a widget on the page. The widget lets you change the currently active list of tokens, so you can compare different sets of styles.
+      </p>
+
+      <pre class="code-block">
+        <code>
+          <%= "<script src='https://cdn.jsdelivr.net/gh/andyjakubowski/tm3000-widget@0.1-alpha/widget.js' id='tokenhub-widget' data-space='#{@space.slug}' data-api='#{Rails.configuration.token_api_url}' data-cable='#{Rails.configuration.action_cable.url}'></script>" %>
+        </code>
+      </pre>
+
+      <p class="space-page__info-paragraph">
+        The widget applies the changes in real time. That means you can keep your project open in one browser tab, and edit the styles in Tokenhost 3000 inside another tab. All the changes you make will be applied to your project immediately.
+      </p>
+    </section>
+
+    <section class="space-page__section">
+      <h3>Access and edit tokens via an API</h3>
+      <p class="space-page__info-paragraph">
+        You can use the Tokenhost 3000 API to do anything you can do using the web UI.
+      </p>
+    </section>
+
+    <section class="space-page__section">
+      <h3>Link to this space</h3>
+      <p class="space-page__info-paragraph"><%= link_to nil, space_url(@space) %></p>
+      <p class="space-page__info-paragraph">
+        Anyone with this link can access the space until it expires.
+      </p>
+    </section>
+
+    <section class="space-page__section">
+      <h3>Why do spaces expire?</h3>
+      <p class="space-page__info-paragraph">
+        Tokenhost 3000 is meant for experimentation. It’s not fully baked. You’re not meant to use it in a production app. Because of this, all spaces expire and can’t be accessed again after roughly 48 hours.
+      </p>
+    </section>
   </section>
 </div>

@@ -25,6 +25,11 @@
     color: var(--color-text-secondary);
   }
 
+  &__info-paragraph {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--padding-small);
+  }
+
   &__description {
     
   }
@@ -51,6 +56,10 @@
 
   &__list-card-content {
     display: block;
+  }
+
+  &__usage-section-title {
+    margin-bottom: var(--padding-medium);
   }
 
   @media screen and (min-width: $mobile-threshold-width) {

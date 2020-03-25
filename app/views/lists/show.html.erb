@@ -9,7 +9,7 @@
       <% if @list.stylesheet.attached? %>
         <span class="list-page__meta-info-separator">·</span>
         <span class="list-page__meta-info-css">
-          <%= link_to 'Get CSS', css_list_url(@list) %>
+          <%= link_to 'CSS Link', css_list_url(@list) %>
         </span>
       <% end %>
       <% if @list.project_url.present? %>

@@ -37,7 +37,7 @@ I wanted to see what it would feel like to be able to edit the fundamental prope
 
 ### Features
 
-tokenhost:3000 lets you do these things:
+Tokenhost 3000 lets you do these things:
 
 - **create a space**, which will keep your lists of tokens for 48 hours
 - **create lists of tokens**. For example, a Light Theme and a Dark Theme
