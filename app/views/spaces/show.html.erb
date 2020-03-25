@@ -1,27 +1,40 @@
 <div class="space-page">
-  <h2 class="space-page__title">Space</h2>
-  <h3 class="space-page__subtitle">Name: <%= @space.slug %></h3>
-  <p class="space-page__info_label"><%= expiration_string(@space) %></p>
+  <header class="space-page__header">
+    <h2 class="space-page__title">Space</h2>
+    <h3 class="space-page__subtitle">Name: <%= @space.slug %></h3>
+  </header>
 
-  <p class="space-page__description">
-    Use this link to access your space before it expires: <%= link_to nil, space_url(@space) %>. Anyone with the link has access — there is no extra protection. The space names should be difficult enough to guess, but just keep that in mind.
-  </p>
+  <section class="space-page__section">
+    <h3>Access link</h3>
+    <p class="space-page__info-label"><%= link_to nil, space_url(@space) %></p>
+    <p class="space-page__info-label">
+      Anyone with this link can access the space until it expires.
+    </p>
+  </section>
 
-  <% if @space.lists.empty? %>
-    <p class="space-page__no-tokens-text">There are no token lists in this space. Go ahead and create one.</p>
-  <% else %>
-    <h3>Lists of tokens</h3>
-    <ul class="space-page__list-of-lists">
-      <% @space.lists.each do |list| %>
-        <li class="space-page__list-item">
-          <%= link_to list.name, list_path(list), class: 'space-page__list-item-link' %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+  <section class="space-page__section">
+    <h3><%= expiration_string(@space) %></h3>
+    <p class="space-page__info-label">
+      tokenhost:3000 is a demo meant for experimentation. All spaces expire and can’t be accessed again after about 48 hours.
+    </p>
+  </section>
 
-  <div class="actions">
-    <%= link_to 'Create list', new_space_list_path(@space), class: 'actions__item' %>
-  </div>
+  <section class="space-page__section">
+    <% if @space.lists.empty? %>
+      <p class="space-page__no-tokens-text">There are no token lists in this space. Go ahead and create one.</p>
+    <% else %>
+      <h3>Lists of tokens</h3>
+      <ul class="space-page__list-of-lists">
+        <% @space.lists.each do |list| %>
+          <li class="space-page__list-item">
+            <%= link_to list.name, list_path(list), class: 'space-page__list-item-link' %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
 
+    <div class="actions">
+      <%= link_to 'Create list', new_space_list_path(@space), class: 'actions__item' %>
+    </div>
+  </section>
 </div>

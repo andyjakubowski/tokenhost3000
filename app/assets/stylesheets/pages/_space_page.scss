@@ -1,4 +1,12 @@
 .space-page {
+  &__header {
+    margin-bottom: var(--padding-large);
+  }
+
+  &__section {
+    margin-bottom: var(--padding-large);
+  }
+
   &__link {
     display: block;
     padding: var(--padding-regular);
@@ -13,13 +21,12 @@
     color: var(--color-text-secondary);
   }
 
-  &__info_label {
+  &__info-label {
     color: var(--color-text-secondary);
-    margin-bottom: var(--padding-medium);
   }
 
   &__description {
-    margin-bottom: var(--padding-large);
+    
   }
 
   &__no-tokens-text {
