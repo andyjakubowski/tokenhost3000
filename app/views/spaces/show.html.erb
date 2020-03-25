@@ -1,7 +1,11 @@
 <div class="space-page">
   <h2 class="space-page__title">Space</h2>
-  <h3 class="space-page__subtitle"><%= @space.slug %></h3>
-  <p class="space-page__expiration_label"><%= expiration_string(@space) %></p>
+  <h3 class="space-page__subtitle">Name: <%= @space.slug %></h3>
+  <p class="space-page__info_label"><%= expiration_string(@space) %></p>
+
+  <p class="space-page__description">
+    Use this link to access your space before it expires: <%= link_to nil, space_url(@space) %>. Anyone with the link has access — there is no extra protection. The space names should be difficult enough to guess, but just keep that in mind.
+  </p>
 
   <% if @space.lists.empty? %>
     <p class="space-page__no-tokens-text">There are no token lists in this space. Go ahead and create one.</p>
