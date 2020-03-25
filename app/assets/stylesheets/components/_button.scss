@@ -6,6 +6,10 @@
   color: var(--color-interactive-inverse);
   cursor: pointer;
   padding: var(--padding-regular) var(--padding-regular);
+
+  &_pill {
+    border-radius: var(--radius-fully-round);
+  }
 }
 
 .button:hover {

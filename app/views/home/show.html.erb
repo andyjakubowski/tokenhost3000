@@ -9,18 +9,18 @@
       <div class="home-page__header-content-container">
         <div class="home-page__header-content-main">
           <%= render 'layouts/notice' %>
-          <h1 class="home-page__title">This Token Thing 2020</h1>
-          <p class="home-page__subtitle">Power to designers</p>
-          <%= form_with model: @space, local: true do |form| %>
-            <%= form.submit class: "button" %>
+          <h1 class="home-page__title">tokenhost:3000</h1>
+          <p class="home-page__subtitle">Deliver and edit design tokens in real time</p>
+          <%= form_with model: @space, local: true, class: "home-page__create-space-form" do |form| %>
+            <%= form.submit 'Try Demo', class: "button button_pill" %>
           <% end %>
+          <a href="#case-study" class="home-page__case-study-anchor">Read the case study</a>
         </div>
-        <p class="home-page__header-content-footer">Read the story below</p>
       </div>
 
     </header>
     <div class="home-page__article-wrapper">
-      <article class="home-page__article-content">
+      <article id="case-study" class="home-page__article-content">
         <%= sanitize @markdown.render(File.read('app/views/home/_case_study.md')) %>
       </article>
     </div>

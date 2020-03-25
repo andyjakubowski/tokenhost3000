@@ -28,27 +28,41 @@
       justify-content: center;
       display: flex;
       flex-direction: column;
-      height: 90%;
+      height: 100%;
       width: 100%;
-    }
-
-    &-content-footer {
-      height: 10%;
+      padding: 0 var(--padding-regular) var(--padding-extra-large);
       text-align: center;
-      color: var(--color-text-inverse-tertiary);
     }
   }
 
   &__title {
-    // margin-bottom: var(--padding-tiny);
-    text-align: center;
+    font-size: 20px;
+    margin-bottom: var(--padding-tiny);
+
+    @media screen and (min-width: $mobile-threshold-width) {
+      font-size: var(--font-size-h4);
+    }
   }
 
   &__subtitle {
     @include text-style-subtitle1;
-    color: var(--color-text-inverse-secondary);
+    color: var(--color-white-alpha70);
     font-style: italic;
-    margin-bottom: var(--padding-medium);
+    margin-bottom: var(--padding-large);
+  }
+
+  &__create-space-form {
+    margin-bottom: var(--padding-regular);
+  }
+
+  &__case-study-anchor {
+    text-decoration: none;
+    color: var(--color-white-alpha70);
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--color-white-alpha100);
+    }
   }
 
   &__article {
