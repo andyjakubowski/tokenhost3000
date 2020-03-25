@@ -10,7 +10,7 @@
         <div class="home-page__header-content-main">
           <%= render 'layouts/notice' %>
           <h1 class="home-page__title">Tokenhost 3000</h1>
-          <p class="home-page__subtitle">Deliver and edit design tokens in real time</p>
+          <p class="home-page__subtitle">Edit and deliver design tokens in real time</p>
           <%= form_with model: @space, local: true, class: "home-page__create-space-form" do |form| %>
             <%= form.submit 'Try Demo', class: "button button_pill" %>
           <% end %>
