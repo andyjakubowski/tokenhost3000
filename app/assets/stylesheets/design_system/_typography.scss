@@ -133,6 +133,11 @@ body {
   color: var(--color-text-primary);
 }
 
+::selection {
+  color: var(--color-interactive-inverse);
+  background-color: var(--color-interactive-primary);
+}
+
 h1,
 h2,
 h3,
