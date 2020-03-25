@@ -2,8 +2,9 @@
   <div class="form__input">
     <div class="form__input-description">
       <%= form.label :name, class: 'form__label' %>
+      <p class="form__hint">Use lowercase letters only, separated by a dash “-”. The name has to begin and end with a letter.</p>
     </div>
-    <%= form.text_field :name, class: 'form__field' %>
+    <%= form.text_field :name, class: 'form__field', pattern: '^[a-z]+(-[a-z]+)*$', required: '', placeholder: 'color-text-primary' %>
   </div>
 
   <div class="form__input">
@@ -11,7 +12,7 @@
       <%= form.label :value, class: 'form__label' %>
       <p class="form__hint">Use any value your project can interpret. For example, any valid CSS value if you’re using CSS.</p>
     </div>
-    <%= form.text_field :value, class: 'form__field' %>
+    <%= form.text_field :value, class: 'form__field', placeholder: '#333333' %>
   </div>
 
   <div class="form__input">
