@@ -1,6 +1,6 @@
 $mobile-threshold-width: 480px;
 
-$max-width-form-wide-screen: 360px;
+$max-width-form-wide-screen: 576px;
 
 @mixin container {
   padding: var(--padding-medium) var(--padding-regular);
