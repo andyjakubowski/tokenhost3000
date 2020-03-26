@@ -15,7 +15,7 @@
 
 ## 1. Introduction
 
-This is the result of six-week-long exploration on the topic of design tokens. I wanted 
+This is the result of a six-week-long exploration on the topic of design tokens. I wanted 
 
 ### Main idea
 
@@ -66,38 +66,107 @@ This is helpful because once you decide you want all buttons to be pink from now
 
 ### How are design tokens used
 
-### 4 stages: authoring, management, distribution, consumption
+Having a bunch of values that everyone agrees to use leads to consistency and harmony across the product. It also forces people to think about systems, and not individual screens or flows. You have an inventory of styles and values that both designers and engineers agree to use, which is nice.
+
+Big companies with big products will sometimes publish their design systems and the design tokens they use in those systems.
+
+### The 4 stages of working with tokens
+
+Obviously there are many ways to slice this cake, but I like to visualize working with tokens using these 4 stages.
+
+#### Authoring
+
+You figure out what tokens you think your product should have. You may come up with a set of colors, and a set of spacing values you’d like to reuse throughout the product.
+
+Tokens are not limited to visual styles. You could define a default animation curve that should be used in your product, and then store that as a token.
+
+#### Management
+
+Once you’ve decided on a set of tokens you want to use, you need to store and look at them somewhere.
+
+This depends on your tools. You could store your styles in a Figma or Sketch library. You could define your tokens in Zeplin. Or, you could document your tokens in a team wiki.
+
+#### Distribution
+
+You’ve now defined your tokens and you’re storing them somewhere. Next, those tokens need to be communicated to all the people actually building the software.
+
+Let’s say you change your “Brand Color” token. How will the engineers be notified of this?
+
+This could be as easy as tapping your team mate on their shoulder, or messaging on Slack. Or maybe they will get a Zeplin notification. Or maybe you have a more complex process where those changes reach the codebase directly.
+
+#### Consumption
+
+How are the tokens applied in the end? Are the values defined by designers interpreted and translated by engineers? Or are they used directly?
+
+Are all the tokens sufficient to build an interface? Or do engineers need to create derivates of the tokens to get things done?
 
 <a name="current-solutions"/>
 
 ## 3. Current Solutions
-- in-house solutions
-- plug-ins
-- Zeplin
+
+I can’t think of any solution that delivers on the promise of being able to edit a set of design tokens and see them applied to the real product in real time. But there are many products out there that do one thing well.
+
+#### Figma, Sketch, Framer
+
+These tools are great at the authoring and management stages. But, they don’t necessarily provide low-barrier ways to deploy whatever you create in a living product.
+
+#### Zeplin
+
+Zeplin is strong when it comes to management and distribution. It takes what you create in Figma or Sketch and presents it in a more accessible way to engineers.
+
+You can define your style guide here, and you can link your real UI components to the designs. This is a step forward.
+
+However, the conversion of designs your tool of choice is not lossless. You can’t resize any elements imported into Zeplin. The engineers are still forced to interpret the details of a design.
 
 <a name="design-goals"/>
 
 ## 4. Design goals
-- real-time
-- system-first, not screen-first
-- easy to try
+
+### Real time
+
+My goal for this project was to create software that would let you edit your design tokens and see them immediately applied to your product. Being able to immediately see how the changes you make affect the product means you can make better informed decisions more quickly.
+
+A design tool like Figma lets you define a library of styles and components. Whenever you update that library, all of the changes will be applied to all the designs that make use of that library. I wanted to achieve the same effect, but the changes you’d make to your “library” of design tokens would be applied to the *product* at runtime.
+
+### System-first, not screen-first
+
+Most design tools give you an infinite canvas upon which you draw rectangles. Those rectangles are representations of different pages or screens in your product.
+
+This canvas is very flexible. You have unlimited options. Yes, you can use the styles in your library to limit yourself. But there’s nothing stopping you from *not* using the styles in the library.
+
+I wanted to flip that around and see what happens when you take the canvas away. The library would be the *only* thing you could change in this demo.
+
+### Easy to try
+
+People be busy. I didn’t want to force people to create a whole new project just to see what I was trying to say.
+
+So this demo would need to provide a way to access some sort of sample tokens and perhaps a sample project, so you could play around with it and get the concept.
 
 <a name="implementation"/>
 
 ## 5. Implementation
-- management: web app (Rails, BEM)
-- distribution: static CSS file storage (Active Storage, S3)
-- distribution: API (Rails)
-- distribution: WebSocket (Rails)
-- consumption: Widget (CSS Custom Properties, Storage API, Action Cable)
-- consumption: offline mode
+
+### Managing tokens with a web app
+
+### A generic API
+
+### Real time delivery with a WebSocket
+
+### Static delivery with CSS
+
+### Offline preview
 
 <a name="challenges"/>
 
 ## 6. Challenges
-- surface area and time limits (6 weeks is not that much time)
-- performance: creating spaces with built-in sample lists, CSS generation
-- Widget and offline storage
+
+### A lot to do in not a lot of time
+
+I knew from the start I had to scope down the project as much as possible. And yet, it was difficult to get things done in 6 weeks.
+
+### Performance
+
+### Synchronizing offline data
 
 <a name="future"/>
 

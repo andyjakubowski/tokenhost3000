@@ -149,19 +149,19 @@ p {
 }
 
 h1 {
-  @include text-style-h4;
+  @include text-style-h3;
 }
 
 h2 {
-  @include text-style-h5;
+  @include text-style-h4;
 }
 
 h3 {
-  @include text-style-h6;
+  @include text-style-h5;
 }
 
 h4 {
-  @include text-style-h4;
+  @include text-style-h6;
 }
 
 h5 {
