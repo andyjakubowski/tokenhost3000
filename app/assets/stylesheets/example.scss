@@ -120,7 +120,7 @@ header.page-header {
   justify-content: center;
   display: flex;
   text-align: center;
-  padding-top: var(--padding-regular);
+  padding-top: var(--padding-large);
 }
 
 footer {
@@ -242,6 +242,53 @@ button:hover {
 
     &_active {
       color: seashell;
+    }
+  }
+}
+
+.example {
+  &__info {
+    &-wrapper {
+      padding: var(--padding-regular);
+    }
+
+    &-content {
+      color: var(--color-text-primary);
+      background-color: var(--card-background);
+      border-radius: var(--radius-medium);
+      padding: var(--padding-medium);
+    }
+
+    &-title {
+      color: var(--color-text-primary);
+      font-size: var(--font-size-regular);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-regular);
+    }
+
+    &-list {
+      list-style: inside;
+    }
+
+    &-list-item {
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+
+      &-symbol {
+        vertical-align: bottom;
+      }
+
+      &:not(:last-of-type) {
+        // margin-bottom: var(--spacing-small);
+      }
+    }
+
+    &-semantically-different {
+      font-style: italic;
+    }
+
+    &-important {
+      font-weight: var(--font-weight-bold);
     }
   }
 }
