@@ -1,7 +1,7 @@
 const resizeCanvas = function resizeCanvas() {
   const canvas = document.querySelector('.glslCanvas');
-  canvas.width = window.screen.width;
-  canvas.height = window.screen.height;
+  canvas.width = canvas.getBoundingClientRect().width;
+  canvas.height = canvas.getBoundingClientRect().height;
 };
 
 if (document.readyState !== 'loading') {
