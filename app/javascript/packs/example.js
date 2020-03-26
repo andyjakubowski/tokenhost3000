@@ -527,14 +527,14 @@ function makeActionCable() {
 
 makeActionCable.call(window);
 
-const TokenHub = (function makeTokenHub() {
+const Tokenhost = (function makeTokenhost() {
   const w = window;
   let SPACE_NAME;
   let API_HOST;
   let API_URL;
 
   const Model = (function makeModel() {
-    const STORAGE_KEY = 'TokenHub';
+    const STORAGE_KEY = 'Tokenhost';
 
     const getLocalStorage = (function makeGetLocalStorage() {
       const emptyDataObject = {
@@ -762,8 +762,12 @@ const TokenHub = (function makeTokenHub() {
         return data;
       },
 
-      init() {
+      init(list_id) {
         data = getLocalStorage();
+
+        if (list_id) {
+          this.setActiveListId(list_id);
+        }
       },
     };
   }());
@@ -1146,8 +1150,8 @@ const TokenHub = (function makeTokenHub() {
       document.head.append(styleTag);
     };
 
-    const initAndRenderWithLocalData = function initAndRenderWithLocalData() {
-      Model.init(); // gets data from localStorage
+    const initAndRenderWithLocalData = function initAndRenderWithLocalData(list_id = null) {
+      Model.init(list_id); // gets data from localStorage
       View.init(); // builds container without any data
       View.render(Model.data()) // uses data to render list names
       updateStyles(Model.activeTokens()); // updates styles for active list
@@ -1227,12 +1231,16 @@ const TokenHub = (function makeTokenHub() {
       },
 
       init() {
-        SPACE_NAME = document.getElementById('tokenhub-widget').dataset.space;
-        // API_HOST = document.getElementById('tokenhub-widget').dataset.host;
-        API_URL = document.getElementById('tokenhub-widget').dataset.api;
-        CABLE_URL = document.getElementById('tokenhub-widget').dataset.cable;
+        let list_id = document.getElementById('tokenhost-widget').dataset.listId;
+        list_id = list_id ? Number(list_id) : null;
+
+        SPACE_NAME = document.getElementById('tokenhost-widget').dataset.space;
+        // API_HOST = document.getElementById('tokenhost-widget').dataset.host;
+        API_URL = document.getElementById('tokenhost-widget').dataset.api;
+        CABLE_URL = document.getElementById('tokenhost-widget').dataset.cable;
+
         root = document.documentElement;
-        initAndRenderWithLocalData();
+        initAndRenderWithLocalData(list_id);
         w.setTimeout(addStyleTransform, 500);
         Model.fetchData()
           .then(() => {
@@ -1265,10 +1273,10 @@ const TokenHub = (function makeTokenHub() {
   }
 }());
 
-window.TokenHub = TokenHub;
+window.Tokenhost = Tokenhost;
 
 if (document.readyState !== 'loading') {
-  TokenHub.init();
+  Tokenhost.init();
 } else {
-  document.addEventListener('DOMContentLoaded', TokenHub.init)
+  document.addEventListener('DOMContentLoaded', Tokenhost.init)
 }
