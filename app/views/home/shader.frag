@@ -19,9 +19,7 @@ void main(){
     coord.y = coord.y + sin(coord.x + cos(len)) + sin(u_time / 25.0);
   }
 
-  // gl_FragColor = vec4(cos(len * 2.0), cos(len * 3.0), cos(len * 1.0), 1.0);
-
-  // we can have a seperate color, obviously. so comment out the gl_FragColor above & uncomment the lines below
-  vec3 color = vec3(clamp(cos(len * 0.33), 0.0, 0.3), clamp(cos(len * 0.29), 0.0, 0.3), clamp(cos(len * 0.45), 0.0, 0.3));
+  float max_alpha = 0.6;
+  vec3 color = vec3(clamp(cos(len * 0.33), 0.0, max_alpha), clamp(cos(len * 0.29), 0.0, max_alpha), clamp(cos(len * 0.45), 0.0, max_alpha));
   gl_FragColor = vec4(color, 1.0);
 }
