@@ -56,57 +56,57 @@ table {
   --default-interactive-color: blue;
   --default-interactive-color-inverse: white;
 
-  --color-text-primary: var(--remote-color-text-primary, var(--default-color));
-  --color-text-secondary: var(--remote-color-text-secondary, var(--default-color));
-  --color-text-tertiary: var(--remote-color-text-tertiary, var(--default-color));
-  --color-text-inverse-primary: var(--remote-color-text-inverse-primary, var(--default-color));
-  --color-background-canvas: var(--remote-color-background-canvas, var(--default-background-color));
-  --color-background-surface: var(--remote-color-background-surface, var(--default-background-color));
-  --color-background-inverse: var(--remote-color-background-inverse, var(--default-background-color));
-  --color-interactive-primary: var(--remote-color-interactive-primary, var(--default-interactive-color));
-  --color-interactive-inverse: var(--remote-color-interactive-inverse, var(--default-interactive-color-inverse));
+  --local-color-text-primary: var(--color-text-primary, var(--default-color));
+  --local-color-text-secondary: var(--color-text-secondary, var(--default-color));
+  --local-color-text-tertiary: var(--color-text-tertiary, var(--default-color));
+  --local-color-text-inverse-primary: var(--color-text-inverse-primary, var(--default-color));
+  --local-color-background-canvas: var(--color-background-canvas, var(--default-background-color));
+  --local-color-background-surface: var(--color-background-surface, var(--default-background-color));
+  --local-color-background-inverse: var(--color-background-inverse, var(--default-background-color));
+  --local-color-interactive-primary: var(--color-interactive-primary, var(--default-interactive-color));
+  --local-color-interactive-inverse: var(--color-interactive-inverse, var(--default-interactive-color-inverse));
 
-  --font-size-extra-large: calc(var(--remote-font-size-extra-large, 32) * 1px);
-  --font-size-large: calc(var(--remote-font-size-large, 24) * 1px);
-  --font-size-medium: calc(var(--remote-font-size-medium, 20) * 1px);
-  --font-size-regular: calc(var(--remote-font-size-regular, 16) * 1px);
-  --font-size-small: calc(var(--remote-font-size-small, 14) * 1px);
+  --local-font-size-extra-large: calc(var(--font-size-extra-large, 32) * 1px);
+  --local-font-size-large: calc(var(--font-size-large, 24) * 1px);
+  --local-font-size-medium: calc(var(--font-size-medium, 20) * 1px);
+  --local-font-size-regular: calc(var(--font-size-regular, 16) * 1px);
+  --local-font-size-small: calc(var(--font-size-small, 14) * 1px);
 
-  --spacing-extra-large: calc(var(--remote-spacing-extra-large, 64) * 1px);
-  --spacing-large: calc(var(--remote-spacing-large, 32) * 1px);
-  --spacing-medium: calc(var(--remote-spacing-medium, 12) * 1px);
-  --spacing-regular: calc(var(--remote-spacing-regular, 8) * 1px);
-  --spacing-small: calc(var(--remote-spacing-small, 4) * 1px);
-  --spacing-tiny: calc(var(--remote-spacing-tiny, 2) * 1px);
+  --local-spacing-extra-large: calc(var(--spacing-extra-large, 64) * 1px);
+  --local-spacing-large: calc(var(--spacing-large, 32) * 1px);
+  --local-spacing-medium: calc(var(--spacing-medium, 12) * 1px);
+  --local-spacing-regular: calc(var(--spacing-regular, 8) * 1px);
+  --local-spacing-small: calc(var(--spacing-small, 4) * 1px);
+  --local-spacing-tiny: calc(var(--spacing-tiny, 2) * 1px);
 
-  --font-weight-bold: var(--remote-font-weight-bold, 700);
-  --font-weight-medium: var(--remote-font-weight-medium, 500);
+  --local-font-weight-bold: var(--font-weight-bold, 700);
+  --local-font-weight-medium: var(--font-weight-medium, 500);
 
-  --font-size-h1: var(--font-size-extra-large, 32);
+  --font-size-h1: var(--local-font-size-extra-large, 32);
 
-  --page-background: var(--color-background-canvas);
-  --card-background: var(--color-background-surface);
+  --page-background: var(--local-color-background-canvas);
+  --card-background: var(--local-color-background-surface);
 
-  --grid-gap-regular: var(--spacing-regular);
+  --grid-gap-regular: var(--local-spacing-regular);
 
-  --padding-extra-large: var(--spacing-extra-large);
-  --padding-large: var(--spacing-large);
-  --padding-medium: var(--spacing-medium);
-  --padding-regular: var(--spacing-regular);
-  --padding-small: var(--spacing-small);
-  --padding-tiny: var(--spacing-tiny);
+  --padding-extra-large: var(--local-spacing-extra-large);
+  --padding-large: var(--local-spacing-large);
+  --padding-medium: var(--local-spacing-medium);
+  --padding-regular: var(--local-spacing-regular);
+  --padding-small: var(--local-spacing-small);
+  --padding-tiny: var(--local-spacing-tiny);
 
-  --radius-large: calc(var(--remote-radius-large, 16) * 1px);
-  --radius-medium: calc(var(--remote-radius-medium, 12) * 1px);
-  --radius-regular: calc(var(--remote-radius-regular, 8) * 1px);
+  --local-radius-large: calc(var(--radius-large, 16) * 1px);
+  --local-radius-medium: calc(var(--radius-medium, 12) * 1px);
+  --local-radius-regular: calc(var(--radius-regular, 8) * 1px);
 
-  --button-border-radius: var(--radius-medium);
-  --card-border-radius: var(--radius-large);
+  --button-border-radius: var(--local-radius-medium);
+  --card-border-radius: var(--local-radius-large);
 
-  --size-extra-large: calc(var(--sizing-extra-large, 72) * 1px);
-  --size-large: calc(var(--sizing-large, 48) * 1px);
+  --local-size-extra-large: calc(var(--sizing-extra-large, 72) * 1px);
+  --local-size-large: calc(var(--sizing-large, 48) * 1px);
 
-  --footer-background-color: var(--color-background-inverse);
+  --footer-background-color: var(--local-color-background-inverse);
 }
 
 body {
@@ -127,13 +127,14 @@ footer {
   align-items: center;
   justify-content: center;
   display: flex;
-  height: var(--size-extra-large);
+  height: var(--local-size-extra-large);
   text-align: center;
+  padding: var(--padding-regular);
 }
 
 footer {
   background-color: var(--footer-background-color);
-  color: var(--color-text-inverse-primary);
+  color: var(--local-color-text-inverse-primary);
   padding-bottom: var(--padding-regular);
 }
 
@@ -146,13 +147,13 @@ main header {
 }
 
 main header * {
-  margin-bottom: var(--spacing-regular);
+  margin-bottom: var(--local-spacing-regular);
 }
 
 h1 {
-  color: var(--color-text-primary);
+  color: var(--local-color-text-primary);
   font-size: var(--font-size-h1);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--local-font-weight-bold);
 }
 
 ul {
@@ -161,44 +162,44 @@ ul {
 }
 
 .text-primary {
-  color: var(--color-text-primary);
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-tiny);
+  color: var(--local-color-text-primary);
+  font-size: var(--local-font-size-medium);
+  font-weight: var(--local-font-weight-bold);
+  margin-bottom: var(--local-spacing-tiny);
 }
 
 .text-secondary {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-regular);
-  margin-bottom: var(--spacing-small);
+  color: var(--local-color-text-secondary);
+  font-size: var(--local-font-size-regular);
+  margin-bottom: var(--local-spacing-small);
 }
 
 .text-tertiary {
-  color: var(--color-text-tertiary);
-  font-size: var(--font-size-small);
+  color: var(--local-color-text-tertiary);
+  font-size: var(--local-font-size-small);
 }
 
 button {
   border: 0;
   border-radius: var(--button-border-radius);
-  background-color: var(--color-interactive-primary);
-  color: var(--color-interactive-inverse);
+  background-color: var(--local-color-interactive-primary);
+  color: var(--local-color-interactive-inverse);
   cursor: pointer;
   font-size: 0.9rem;
   font-variant-caps: small-caps;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--local-font-weight-medium);
   letter-spacing: 0.1em;
   padding: var(--padding-regular) var(--padding-regular);
 }
 
 .button-secondary {
-  border: thick double var(--color-interactive-primary);
+  border: thick double var(--local-color-interactive-primary);
   background-color: transparent;
-  color: var(--color-interactive-primary);
+  color: var(--local-color-interactive-primary);
 }
 
 .button-secondary:hover {
-  background-color: var(--color-background-surface);
+  background-color: var(--local-color-background-surface);
 }
 
 button:hover {
@@ -253,17 +254,17 @@ button:hover {
     }
 
     &-content {
-      color: var(--color-text-primary);
+      color: var(--local-color-text-primary);
       background-color: var(--card-background);
-      border-radius: var(--radius-medium);
+      border-radius: var(--local-radius-medium);
       padding: var(--padding-medium);
     }
 
     &-title {
-      color: var(--color-text-primary);
-      font-size: var(--font-size-regular);
-      font-weight: var(--font-weight-bold);
-      margin-bottom: var(--spacing-regular);
+      color: var(--local-color-text-primary);
+      font-size: var(--local-font-size-regular);
+      font-weight: var(--local-font-weight-bold);
+      margin-bottom: var(--local-spacing-regular);
     }
 
     &-list {
@@ -271,7 +272,7 @@ button:hover {
     }
 
     &-list-item {
-      color: var(--color-text-secondary);
+      color: var(--local-color-text-secondary);
       line-height: 1.5;
 
       &-symbol {
@@ -288,7 +289,7 @@ button:hover {
     }
 
     &-important {
-      font-weight: var(--font-weight-bold);
+      font-weight: var(--local-font-weight-bold);
     }
   }
 }
