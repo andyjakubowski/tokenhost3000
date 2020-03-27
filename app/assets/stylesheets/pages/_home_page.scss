@@ -70,13 +70,17 @@
     &-wrapper {
       display: flex;
       justify-content: center;
-      padding-top: var(--padding-large);
+      padding: var(--padding-large) 0 var(--padding-extra-large);
     }
 
     &-content {
       max-width: 700px;
 
-      padding: var(--padding-medium) var(--padding-regular);
+      padding: 0 var(--padding-regular);
+
+      @media screen and (min-width: $mobile-threshold-width) {
+        padding: 0 var(--padding-medium);
+      }
 
       h1 {
         margin-bottom: var(--padding-large);
@@ -89,6 +93,10 @@
 
       h3 {
         margin-top: var(--padding-large);
+        margin-bottom: var(--padding-regular);
+      }
+
+      h4 {
         margin-bottom: var(--padding-regular);
       }
 

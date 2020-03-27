@@ -1,4 +1,3 @@
-
 # Case Study
 
 ##### Table of Contents  
@@ -60,7 +59,7 @@ Tokenhost 3000 lets you do these things:
 
 ## 2. Design Tokens
 
-### What is a design token, anyway?
+### What’s a design token, anyway?
 
 A design token lets you give a name and a value to something that gets repeated in your product a lot.
 
@@ -70,7 +69,7 @@ For example, you could have a token named “Color — Brand” with a value of 
 
 This is helpful because once you decide you want all buttons to be pink from now on, all you need to do is change your “Color — Brand” token from “Orange” to “Pink”. If done right, this saves you time and lets you focus on the experience of using your product.
 
-### How are design tokens used
+### How design tokens are used
 
 Having a bunch of values that everyone agrees to use leads to consistency and harmony across the product. It also forces people to think about systems, and not individual screens or flows. You have an inventory of styles and values that both designers and engineers agree to use, which is nice.
 
@@ -110,7 +109,7 @@ Are all the tokens sufficient to build an interface? Or do engineers need to cre
 
 ## 3. Current Solutions
 
-I can’t think of any solution that delivers on the promise of being able to edit a set of design tokens and see them applied to the real product in real time. But there are many products out there that do one thing well.
+I can’t think of any solution that delivers on the promise of being able to edit a set of design tokens and see them applied to the real product in real time. But there are some products out there that do one or several of the things mentioned above.
 
 #### Figma, Sketch, Framer
 
@@ -210,29 +209,41 @@ The process of attaching the file to the List model is handled by Rails Active S
 
 ## 6. Challenges
 
+### Demonstrating value immediately
+
+I really wanted to let people play around with tokens and see them instantly applied to a page.
+
+Writing software to let people do that was one thing. Letting them immediately *feel* the benefits was another thing entirely.
+
+I’d need to “close the loop”. You’d have to be able to visit the demo page without any particular knowledge or available time and still be able to experience the whole thing.
+
+So I decided I would not just have an API delivering design tokens, but also built a sample client that consumed the API and applied the tokens in a sample page.
+
+In retrospect, this significantly increased the surface area of the problem I was dealing with. It meant I now had less time to dedicate to structuring or testing the API itself.
+
+The trade-off of focusing on delivering this broader experience was that I had less time to polish everything to the extent that I wanted to in those six weeks.
+
+As much as my inner critic hates to admit it, I think it was a good decision. And being forced into weighing these trade-offs in the first place was a good example of how real life product decisions have to be made sometimes.
+
 ### Performance
 
 Every time someone clicks the **Try Demo** button, a new Tokenhost space is created just for them to experiment with. 
 
-And every time a new space is created, 3 sample token lists with a total of 50 tokens get created so they have something to experiment with immediately. Once that’s done, CSS files are generated for each sample list.
+And every time a new space is created, 3 sample token lists with a total of 50 tokens get created so they have something to experiment with immediately. 
 
-This is fine for limited usage, but could become challenging with many users at once.
+That’s a non-insignificant amount of work to do for every new space. Worse, I would initially execute an Active Record Callback to generate the CSS file every time a token record got created, updated, or destroyed.
 
-### A lot to do in not a lot of time
+This caused an unnecessary load on the server, so I had to find a workaround. I ended up generating the CSS conditionally, so now the CSS is generated once, after all the sample tokens are created for each list.
 
-Launch School has taught me a lot in terms of programming fundamentals. Still, I knew I would need to learn much more to build and deploy a working app in 6 weeks. I knew I’d have to limit the scope as much as possible.
+That made things faster. Probably fast enough for the purposes of showcasing this demo.
 
-It was still hard. There were a lot of unknowns I wasn’t aware of. It’s hard to allocate to something you don’t know is coming.
-
-As a designer, my work never feels *done*. There are always things that need improvement staring you in the face. My takeaway here is to be even more brutal about limiting scope to make room for the unknown unkowns.
-
-### Synchronizing offline data
+Another way to improve response times would be to create just the space record, return a response, and enqueue the sample list and token creation as background jobs. Once the background job got done, we could update the space page and display the sample content.
 
 <a name="future"/>
 
 ## 7. Future
-- stricter types and input validation
-- add namespacing to categories
+- make token types more meaningful (for example, store the Red, Green, Blue, and Alpha components separately to allow for precise future manipulation)
+- use category names as prefixes for token names (so all colors get a “color-” prefix)
 - more direct token value affordances (color picker, sliders, etc.)
 - tokens derivatives (tokens getting their value from another token)
 - make it easier to figure out which elements on the page use which tokens so you know what to edit
@@ -240,6 +251,35 @@ As a designer, my work never feels *done*. There are always things that need imp
 <a name="references"/>
 
 ## 8. References
-- Lea Verou’s Custom CSS Properties talk
-- Jina Anne’s design systems talk
-- The Book of Shaders
+
+### Design Tokens
+
+#### [Using Design Tokens with the Lightning Design System](https://www.youtube.com/watch?v=wDBEc3dJJV8)
+
+Great talk on YouTube on how design tokens were used at Salesforce.
+
+#### [Design Tokens W3C Community Group](https://github.com/design-tokens/community-group)
+
+The official *Design Tokens W3C Community Group* repository for the design tokens specification. A number of people are trying to agree on a common standard for design tokens to increase interoperability between tools and processes.
+
+### Design APIs
+
+#### [Design APIs: the evolution of design systems](https://matthewstrom.com/writing/design-apis/)
+
+Good introductory article on the concept of delivering aspects of a design using APIs.
+
+#### [Zeplin API](https://docs.zeplin.dev/reference)
+
+Zeplin launched their API in early 2020. You can grab anything you store in Zeplin and use it however you like.
+
+### Custom CSS properties AKA CSS variables
+
+#### [Lea Verou - CSS Variables: var(--subtitle);](https://www.youtube.com/watch?v=2an6-WVPuJU)
+
+Another great YouTube talk on the applications of CSS variables.
+
+#### [CSS Custom Properties and Theming](https://css-tricks.com/css-custom-properties-theming)
+
+A nice, gentle intro to CSS variables from CSS Tricks.
+
+#### [Custom properties on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
