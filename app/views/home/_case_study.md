@@ -15,11 +15,17 @@
 
 ## 1. Introduction
 
-This is the result of a six-week-long exploration on the topic of design tokens. I wanted 
+This demo and case study are the result of a six week exploration on the topic of design tokens.
+
+After working as a product designer for over 10 years, I decided I would like to explore software engineering.
+
+This is the first thing I built after finishing Launch School, a mastery-based curriculum focusing on programming fundamentals.
 
 ### Main idea
 
-It should not take weeks to update the color of a single button. Wouldn’t it be great if designers could test the styling of a product by themselves, **in real time**?
+*It should not take weeks to update the color of a single button*.
+
+Wouldn’t it be great if designers could test the styling of a product by themselves, **in real time**?
 
 ### Inspiration
 
@@ -146,15 +152,61 @@ So this demo would need to provide a way to access some sort of sample tokens an
 
 ## 5. Implementation
 
+This section describes the technical solutions I chose to manage, store, and deliver tokens to clients.
+
 ### Managing tokens with a web app
+
+Tokenhost 3000 offers a web interface that lets you manage your tokens. It’s a Rails app running on Heroku. The data is stored in a Postgres database.
+
+Overall, a fairly standard Rails setup that I came up with based on what I’d learned in Launch School, and by following the great Rails Guides.
+
+The web app offers a bare bones interface that assumes you experiment and come up with your tokens elsewhere. Once you know what colors, spacing values, or whatever other sorts of tokens you want, you add them to Tokenhost 3000.
 
 ### A generic API
 
+Everything you can do with your Tokenhost space using the web app can be done using the Tokenhost API. 
+
+Rails has a very straightforward way of structuring HTTP responses depending on the type of request. Every route can have a JSON alternative. Rails provides an easy way of returning either HTML or JSON based on that.
+
+For example, you can send a **GET** HTTP request to retrieve the tokens for a particular list. Or send a **PATCH** request to update a token.
+
+This creates potential for interoperability. You could build a tool that uses the Zeplin API to sync the style guide stored in Zeplin with Tokenhost. Or you could build a tool that processes Tokenhost tokens; imagine you define one color, and then run a process that creates a bunch of new tokens that derive their value from the original.
+
 ### Real time delivery with a WebSocket
+
+Real time delivery of tokens as they change is ensured with Rails Action Cable channels. Action Cable uses the WebSocket protocol under the hood. Clients can subscribe to those sockets, and receive updates.
+
+The Tokenhost Widget included in the demo uses just that. When you load a page that includes the widget, it first uses the generic API to fetch the latest tokens. After that, any changes to tokens on the Tokenhost side are broadcast to the widget using Action Cable channels.
+
+Action Cable uses Redis as a transient data store to ensure the content is synced across all the instances of the web app.
+
+Any update to the space is reflected in the Widget immediately.
+
+Using the Widget is simple. You include a provided script tag in your HTML markup, and it takes care of rendering the widget and connecting to your Tokenhost space. The script tag includes a few custom data attributes that are used to configure the script.
+
+### Offline preview with the Tokenhost Widget
+
+The Tokenhost Widget uses the latest available version of the tokens — even if the network is down.
+
+This is because once the tokens are fetched with the API or received via a WebSocket, they’re stored in the browser’s local storage.
+
+This lets you keep using the widget if Tokenhost goes down, or if you’re offline. And it limits the amount of requests made to Tokenhost.
+
+Only one request is made when the page loads, and then all new data is delivered through a WebSocket. All new data is synced to local storage, and used to update the styles on the page.
 
 ### Static delivery with CSS
 
-### Offline preview
+Tokenhost exposes every list of tokens as a separate CSS file you can link to in your HTML. Any time you change one of your tokens, the CSS file is regenerated.
+
+This is a good option if you don’t want to execute any extra JavaScript, or if you don’t want to let people change the active token list in the Widget.
+
+The CSS generation is triggered on any change to any token related to a particular list.
+
+First, a string representation of the CSS is created. Then, a StringIO object is instantiated using the string. Lastly, the StringIO object is attached to the List Rails model.
+
+The process of attaching the file to the List model is handled by Rails Active Storage, which then takes care of uploading the file to an Amazon S3 bucket.
+
+### Expiring spaces
 
 <a name="challenges"/>
 
