@@ -206,17 +206,25 @@ First, a string representation of the CSS is created. Then, a StringIO object is
 
 The process of attaching the file to the List model is handled by Rails Active Storage, which then takes care of uploading the file to an Amazon S3 bucket.
 
-### Expiring spaces
-
 <a name="challenges"/>
 
 ## 6. Challenges
 
+### Performance
+
+Every time someone clicks the **Try Demo** button, a new Tokenhost space is created just for them to experiment with. 
+
+And every time a new space is created, 3 sample token lists with a total of 50 tokens get created so they have something to experiment with immediately. Once that’s done, CSS files are generated for each sample list.
+
+This is fine for limited usage, but could become challenging with many users at once.
+
 ### A lot to do in not a lot of time
 
-I knew from the start I had to scope down the project as much as possible. And yet, it was difficult to get things done in 6 weeks.
+Launch School has taught me a lot in terms of programming fundamentals. Still, I knew I would need to learn much more to build and deploy a working app in 6 weeks. I knew I’d have to limit the scope as much as possible.
 
-### Performance
+It was still hard. There were a lot of unknowns I wasn’t aware of. It’s hard to allocate to something you don’t know is coming.
+
+As a designer, my work never feels *done*. There are always things that need improvement staring you in the face. My takeaway here is to be even more brutal about limiting scope to make room for the unknown unkowns.
 
 ### Synchronizing offline data
 
