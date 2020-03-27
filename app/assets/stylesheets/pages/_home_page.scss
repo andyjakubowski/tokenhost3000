@@ -36,19 +36,35 @@
   }
 
   &__title {
-    font-size: 20px;
+    font-size: var(--font-size-h3);
     margin-bottom: var(--padding-tiny);
 
     @media screen and (min-width: $mobile-threshold-width) {
-      font-size: var(--font-size-h4);
+      margin-bottom: var(--padding-small);
     }
+
+    @media screen and (min-width: $huge-threshold-width) {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  &__title-number {
+    // font-size: 48px;
   }
 
   &__subtitle {
     @include text-style-subtitle1;
+    font-size: 18px;
     color: var(--color-white-alpha70);
-    font-style: italic;
     margin-bottom: var(--padding-large);
+
+    @media screen and (min-width: $huge-threshold-width) {
+      font-size: var(--font-size-h4);
+    }
+  }
+
+  &__subtitle-emphasis {
+    font-style: italic;
   }
 
   &__create-space-form {
@@ -97,6 +113,7 @@
       }
 
       h4 {
+        margin-top: var(--padding-medium);
         margin-bottom: var(--padding-regular);
       }
 
