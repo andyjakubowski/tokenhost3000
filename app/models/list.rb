@@ -9,7 +9,7 @@ class List < ApplicationRecord
     array = []
 
     self.tokens.each do |token|
-      array << "  --remote-#{token.name.parameterize}: #{token.value};\n"
+      array << "  --#{token.name.parameterize}: #{token.value};\n"
     end
 
     stylesString = ":root {\n#{array.join}}"
