@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'example', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdn.jsdelivr.net/gh/andyjakubowski/tm3000-widget@0.2-alpha/widget.js" id="tokenhost-widget" data-space="<%= @list.space.slug %>" data-api="<%= Rails.configuration.token_api_url %>" data-cable="<%= Rails.configuration.action_cable.url %>" data-turbolinks-track="reload" data-list-id="<%= @list.id %>"></script>
+    <script src="https://cdn.jsdelivr.net/gh/andyjakubowski/tokenhost3000-widget@0.2-alpha/widget.js" id="tokenhost-widget" data-space="<%= @list.space.slug %>" data-api="<%= Rails.configuration.token_api_url %>" data-cable="<%= Rails.configuration.action_cable.url %>" data-turbolinks-track="reload" data-list-id="<%= @list.id %>"></script>
   </head>
 
   <body>

@@ -7,4 +7,4 @@ test:
 production:
   adapter: redis
   url: <%= ENV.fetch("REDISTOGO_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: capstone_week_06_production
+  channel_prefix: tokenhost3000

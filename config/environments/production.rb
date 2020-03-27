@@ -40,14 +40,14 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://andy-capstone-week-06.herokuapp.com/cable'
+  config.action_cable.url = 'wss://tokenhost3000.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = [
-    'http://andy-capstone-week-06.herokuapp.com',
-    'https://andy-capstone-week-06.herokuapp.com',
-    /http:\/\/andy-capstone-week-06.herokuapp.*/
+    'http://tokenhost3000.herokuapp.com',
+    'https://tokenhost3000.herokuapp.com',
+    /http:\/\/tokenhost3000.herokuapp.*/
   ]
-  config.token_api_url = 'https://andy-capstone-week-06.herokuapp.com'
-  routes.default_url_options[:host] = 'https://andy-capstone-week-06.herokuapp.com'
+  config.token_api_url = 'https://tokenhost3000.herokuapp.com'
+  routes.default_url_options[:host] = 'https://tokenhost3000.herokuapp.com'
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -64,7 +64,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "capstone_week_06_production"
+  # config.active_job.queue_name_prefix = "tokenhost3000_production"
 
   config.action_mailer.perform_caching = false
 
