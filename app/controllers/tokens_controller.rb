@@ -13,7 +13,6 @@ class TokensController < ApplicationController
 
   def create
     @token = @list.tokens.new(token_params)
-    @token.space = @list.space
     respond_to do |format|
       if @token.save
         @list.generate_css
