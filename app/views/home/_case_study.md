@@ -1,6 +1,7 @@
 # Case Study
 
-##### Table of Contents  
+##### Table of Contents
+
 [1. Introduction](#introduction)  
 [2. Design Tokens](#design-tokens)  
 [3. Current Solutions](#current-solutions)  
@@ -8,7 +9,7 @@
 [5. Implementation](#implementation)  
 [6. Challenges](#challenges)  
 [7. Future](#future)  
-[8. References](#references)  
+[8. References](#references)
 
 <a name="introduction"/>
 
@@ -22,7 +23,7 @@ This is the first thing I built after finishing Launch School, a mastery-based c
 
 ### Main idea
 
-*It should not take weeks to update the color of a single button*.
+_It should not take weeks to update the color of a single button_.
 
 Wouldn’t it be great if designers could test the styling of a product by themselves, **in real time**?
 
@@ -34,7 +35,7 @@ But as the complexity of what is being designed grows, that direct contact with 
 
 As a product designer, I’ve been in that latter camp a lot.
 
-But as I invested more time into learning programming, I was impressed by how much order there was to some seemingly complex parts. Programmers were presented with a lot of power coming from tools, packages, and plugins, all of these things worked together nicely. As long as you follow a bunch of rules, you get a lot of capability *and* retain control over the thing.
+But as I invested more time into learning programming, I was impressed by how much order there was to some seemingly complex parts. Programmers were presented with a lot of power coming from tools, packages, and plugins, all of these things worked together nicely. As long as you follow a bunch of rules, you get a lot of capability _and_ retain control over the thing.
 
 I really liked that. A perfect example was the Rack interface. Rack lets frameworks and web servers work together easily as long as they follow some basic rules set by Rack.
 
@@ -131,15 +132,15 @@ However, the conversion of designs your tool of choice is not lossless. You can�
 
 My goal for this project was to create software that would let you edit your design tokens and see them immediately applied to your product. Being able to immediately see how the changes you make affect the product means you can make better informed decisions more quickly.
 
-A design tool like Figma lets you define a library of styles and components. Whenever you update that library, all of the changes will be applied to all the designs that make use of that library. I wanted to achieve the same effect, but the changes you’d make to your “library” of design tokens would be applied to the *product* at runtime.
+A design tool like Figma lets you define a library of styles and components. Whenever you update that library, all of the changes will be applied to all the designs that make use of that library. I wanted to achieve the same effect, but the changes you’d make to your “library” of design tokens would be applied to the _product_ at runtime.
 
 ### System-first, not screen-first
 
 Most design tools give you an infinite canvas upon which you draw rectangles. Those rectangles are representations of different pages or screens in your product.
 
-This canvas is very flexible. You have unlimited options. Yes, you can use the styles in your library to limit yourself. But there’s nothing stopping you from *not* using the styles in the library.
+This canvas is very flexible. You have unlimited options. Yes, you can use the styles in your library to limit yourself. But there’s nothing stopping you from _not_ using the styles in the library.
 
-I wanted to flip that around and see what happens when you take the canvas away. The library would be the *only* thing you could change in this demo.
+I wanted to flip that around and see what happens when you take the canvas away. The library would be the _only_ thing you could change in this demo.
 
 ### Easy to try
 
@@ -163,7 +164,7 @@ The web app offers a bare bones interface that assumes you experiment and come u
 
 ### A generic API
 
-Everything you can do with your Tokenhost space using the web app can be done using the Tokenhost API. 
+Everything you can do with your Tokenhost space using the web app can be done using the Tokenhost API.
 
 Rails has a very straightforward way of structuring HTTP responses depending on the type of request. Every route can have a JSON alternative. Rails provides an easy way of returning either HTML or JSON based on that.
 
@@ -213,7 +214,7 @@ The process of attaching the file to the List model is handled by Rails Active S
 
 I really wanted to let people play around with tokens and see them instantly applied to a page.
 
-Writing software to let people do that was one thing. Letting them immediately *feel* the benefits was another thing entirely.
+Writing software to let people do that was one thing. Letting them immediately _feel_ the benefits was another thing entirely.
 
 I’d need to “close the loop”. You’d have to be able to visit the demo page without any particular knowledge or available time and still be able to experience the whole thing.
 
@@ -227,9 +228,9 @@ As much as my inner critic hates to admit it, I think it was a good decision. An
 
 ### Performance
 
-Every time someone clicks the **Try Demo** button, a new Tokenhost space is created just for them to experiment with. 
+Every time someone clicks the **Try Demo** button, a new Tokenhost space is created just for them to experiment with.
 
-And every time a new space is created, 3 sample token lists with a total of 50 tokens get created so they have something to experiment with immediately. 
+And every time a new space is created, 3 sample token lists with a total of 50 tokens get created so they have something to experiment with immediately.
 
 That’s a non-insignificant amount of work to do for every new space. Worse, I would initially execute an Active Record Callback to generate the CSS file every time a token record got created, updated, or destroyed.
 
@@ -242,6 +243,7 @@ Another way to improve response times would be to create just the space record, 
 <a name="future"/>
 
 ## 7. Future
+
 - make token types more meaningful (for example, store the Red, Green, Blue, and Alpha components separately to allow for precise future manipulation)
 - use category names as prefixes for token names (so all colors get a “color-” prefix)
 - more direct token value affordances (color picker, sliders, etc.)
@@ -260,7 +262,7 @@ Great talk on YouTube on how design tokens were used at Salesforce.
 
 #### [Design Tokens W3C Community Group](https://github.com/design-tokens/community-group)
 
-The official *Design Tokens W3C Community Group* repository for the design tokens specification. A number of people are trying to agree on a common standard for design tokens to increase interoperability between tools and processes.
+The official _Design Tokens W3C Community Group_ repository for the design tokens specification. A number of people are trying to agree on a common standard for design tokens to increase interoperability between tools and processes.
 
 ### Design APIs
 
