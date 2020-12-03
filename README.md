@@ -4,11 +4,13 @@ Tokenhost 3000 is a conceptual prototype of a web app for editing and delivering
 
 I built this in six weeks right after finishing [Launch School](https://launchschool.com), a mastery-based curriculum focusing on programming fundamentals.
 
-![GIF of the Tokenhost 3000 demo](tokenhost-intro.gif)
+![GIF of the Tokenhost 3000 home page](tokenhost-home.gif)
 
 # Try the demo
 
 Go to [https://tokenhost3000.herokuapp.com/](https://tokenhost3000.herokuapp.com/) and click the **Try Demo** button. You’ll get an account to play around that will self-destruct after 24 hours.
+
+![GIF of the Tokenhost 3000 demo](tokenhost-intro.gif)
 
 # Case Study
 
