@@ -14,14 +14,14 @@ Go to [https://tokenhost3000.herokuapp.com/](https://tokenhost3000.herokuapp.com
 
 ##### Table of Contents
 
-[1. Introduction](#introduction)  
-[2. Design Tokens](#design-tokens)  
-[3. Current Solutions](#current-solutions)  
-[4. Design goals](#design-goals)  
-[5. Implementation](#implementation)  
-[6. Challenges](#challenges)  
-[7. Future](#future)  
-[8. References](#references)
+1. Introduction
+2. Design Tokens
+3. Current Solutions
+4. Design goals
+5. Implementation
+6. Challenges
+7. Future
+8. References
 
 ## 1. Introduction
 
