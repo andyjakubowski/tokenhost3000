@@ -6,13 +6,17 @@ I built this in six weeks right after finishing [Launch School](https://launchsc
 
 ![GIF of the Tokenhost 3000 home page](tokenhost-home.gif)
 
-# Try the demo
+## Try the demo
 
 Go to [https://tokenhost3000.herokuapp.com/](https://tokenhost3000.herokuapp.com/) and click the **Try Demo** button. You’ll get an account to play around that will self-destruct after 24 hours.
 
 ![GIF of the Tokenhost 3000 demo](tokenhost-intro.gif)
 
-# Case Study
+## Installation
+
+Make sure you have Node 14 installed before running `yarn install`, because `node-sass@4.14.1` only works with Node 14.
+
+## Case Study
 
 ##### Table of Contents
 
