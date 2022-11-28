@@ -45,7 +45,7 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = [
     "http://#{hostname}",
     "https://#{hostname}",
-    /http:\/\/tokenhost3000.herokuapp.*/
+    /http:\/\/#{ENV['HEROKU_APP_NAME']}.herokuapp.*/
   ]
   config.token_api_url = "https://#{hostname}"
   routes.default_url_options[:host] = "https://#{hostname}"
