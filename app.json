@@ -39,6 +39,10 @@
       "description": "The name of your AWS S3 bucket",
       "value": "your-aws-bucket-name"
     },
+    "HEROKU_APP_NAME": {
+      "description": "The name of the Heroku app you’re creating. Used to configure Action Cable. It must match the Heroku app name exactly, or the design token streaming won’t work.",
+      "value": "your-heroku-app-name"
+    },
     "BASIC_AUTH_USER": {
       "description": "The username for accessing protected routes",
       "value": "admin"

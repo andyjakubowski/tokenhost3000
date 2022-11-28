@@ -40,14 +40,15 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://tokenhost3000.herokuapp.com/cable'
+  hostname = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
+  config.action_cable.url = "wss://#{hostname}/cable"
   config.action_cable.allowed_request_origins = [
-    'http://tokenhost3000.herokuapp.com',
-    'https://tokenhost3000.herokuapp.com',
+    "http://#{hostname}",
+    "https://#{hostname}",
     /http:\/\/tokenhost3000.herokuapp.*/
   ]
-  config.token_api_url = 'https://tokenhost3000.herokuapp.com'
-  routes.default_url_options[:host] = 'https://tokenhost3000.herokuapp.com'
+  config.token_api_url = "https://#{hostname}"
+  routes.default_url_options[:host] = "https://#{hostname}"
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
