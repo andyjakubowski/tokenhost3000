@@ -1,22 +1,119 @@
 # Intro
 
-Tokenhost 3000 is a conceptual prototype of a web app for editing and delivering design tokens (styles) in real time.
+[![Open Demo](open-demo-button.svg)](https://tokenhost3000.herokuapp.com)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-I built this in six weeks right after finishing [Launch School](https://launchschool.com), a mastery-based curriculum focusing on programming fundamentals.
+Tokenhost 3000 is a prototype of a web app that lets you edit and stream design tokens (styles) in real time to the project you’re working on.
+
+The fastest way to check out this project is to [**play with the live demo**](https://tokenhost3000.herokuapp.com/)! The demo gives you a bunch of pre-defined tokens and a sample project _Superhero Cards_ for previewing token updates.
+
+Overall, though, it works like this:
+
+1. Come up with a set of design tokens for a project you’re working on. “Design tokens” means styling properties like text sizes, colors, or spacing values.
+2. Start building your project using those design tokens.
+3. Instead of tweaking the design tokens directly inside your project’s codebase, deploy the project and connect it to Tokenhost 3000.
+4. Now, tweak the values of your design tokens in Tokenhost 3000, and watch the changes be applied to your deployed project in real time.
 
 ![GIF of the Tokenhost 3000 home page](tokenhost-home.gif)
 
-## Try the demo
+## Play with the live demo
 
-Go to [https://tokenhost3000.herokuapp.com/](https://tokenhost3000.herokuapp.com/) and click the **Try Demo** button. You’ll get an account to play around that will self-destruct after 24 hours.
+- Go to [Tokenhost 3000 deployed on Heroku](https://tokenhost3000.herokuapp.com/) and click the **Try Demo** button. A _Space_ will be created for you with 3 sample _Lists_ of tokens. Lists are like themes.
+- Click on the “Example: Dark” list on the Space page to go to the details of that list.
+- You should see a List page with a bunch of tokens already created.
+- Under the name of the List, there’s a “Preview Project” link. Open this link in a new browser window.
+- You should see a “Superhero Cards” project page. This is a made up project you can use to preview how updating the tokens works. Normally, this would be your own project you’re working on.
+- Go back to the browser tab with your list of tokens. Under Colors, find the `color-interactive-primary` and click Edit.
+- Change the value from `purple` to `red` and click the _Update Color_ button.
+- The change you just made should be immediately applied to the _Superhero Cards_ preview project!
+- _Superhero Cards_ has a button in the bottom right corner. Click on it, and change which _List_ of tokens should be applied to the page!
+- You can create your own Lists, Categories of tokens, and Tokens. All Lists in your Space will be listed in that bottom right corner area of your project.
+
+Spaces in the demo self-destruct after 24 hours.
 
 ![GIF of the Tokenhost 3000 demo](tokenhost-intro.gif)
 
-## Installation
+## Why did you build this?
 
-Make sure you have Node 14 installed before running `yarn install`, because `node-sass@4.14.1` only works with Node 14.
+For a couple of reasons:
+
+1. I wanted to design, build, and ship a bigger project after finishing [Launch School](https://launchschool.com), a mastery-based curriculum focusing on programming fundamentals. Shipping the whole thing took about 7 weeks from start to finish.
+2. I wanted to see what it would feel like if you decoupled styling details from the codebase, and let designers do the styling in real time on a deployed project instead of working in siloed design tools.
+
+## Tech stack
+
+- The web app for editing design tokens is built with Ruby on Rails 6.
+- Every time you edit a design token, a new CSS stylesheet is generated for your list of tokens and stored in an AWS S3 bucket. You can link directly to this stylesheet from your project’s code.
+- Tokens are streamed from the web app to your project with WebSockets.
+  - The broadcasting is done with Rails Action Cable.
+  - Your project subscribes to design token updates with the Tokenhost 3000 JavaScript widget. Follow the instructions in the web app on how to set this up.
+  - The Tokenhost 3000 widget loaded in your project caches the tokens in your browser’s Local Storage, so you can still test out different lists of tokens (themes) even if you’re offline.
+
+Read the case study below if you’d like to learn more about this project!
+
+## Running Tokenhost 3000 locally on your machine
+
+To make sure everything runs smoothly, install the following on your machine first:
+
+- Node.js 14.x
+- Ruby 2.7.6
+- Yarn 1.22.19
+- Postgres 14
+
+Now, clone the repo, `cd` into your repo’s directory, and run the following commands:
+
+```shell
+# Install Ruby gems specified in /Gemfile
+bundle install
+# Install Node packages specified in /package.json
+yarn install
+# Set up a local Postgres database
+bin/rails db:setup
+```
+
+If everything went right, you should now be able to start a local dev server with `rails`:
+
+```shell
+bin/rails server
+```
+
+## Deploying to Heroku
+
+Things you’ll need to deploy to Heroku:
+
+- Credentials for accessing an AWS S3 bucket. This S3 bucket will be used for stylesheets generated for each List of tokens.
+- A Heroku account. Please note that Heroku no longer offers free plans. But you should be able to deploy this app with some cheap plan prorated to the second. It should cost more than a couple of bucks.
+
+Click the _Deploy to Heroku_ button below to deploy without having to do any manual configuration:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Deploying manually will take more work. Here are some pointers:
+
+- Download the [Heroku CLI](https://devcenter.heroku.com/categories/command-line), and log in.
+- Tell Heroku to use the `node` field in `package.json` by adding a Node.js _buildpack_:
+
+```shell
+heroku buildpacks:set heroku/nodejs
+```
+
+- This will overwrite the default `heroku/ruby` buildpack, so add it again:
+
+```shell
+heroku buildpacks:add heroku/ruby
+```
+
+- Provision the _Heroku Postgres_ add-on; this will set a DATABASE_URL config variable in Heroku, and the Rails app will use it to connect to the database.
+- Provision the _Heroku Data for Redis_ add-on; this will set a REDIS_URL config variable in Heroku used by the Rails app.
+- Create an AWS S3 bucket, then add the following config vars to your Heroku app:
+  - `AWS_ACCESS_KEY_ID`
+  - `AWS_BUCKET`
+  - `AWS_SECRET_ACCESS_KEY`
+- Set BASIC*AUTH_USER and BASIC_AUTH_PASSWORD if you’d like to test out the protected admin routes, like listing all of the \_Spaces* generated for all the people who clicked “Try Demo”.
 
 ## Case Study
+
+Below is the original case study I wrote right after I finished working on this prototype:
 
 ##### Table of Contents
 
