@@ -1,7 +1,7 @@
 # Intro
 
 [![Open Demo](open-demo-button.svg)](https://tokenhost3000.herokuapp.com)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/andyjakubowski/tokenhost3000)
 
 Tokenhost 3000 is a prototype of a web app that lets you edit and stream design tokens (styles) in real time to the project you’re working on.
 
@@ -86,7 +86,7 @@ Things you’ll need to deploy to Heroku:
 
 Click the _Deploy to Heroku_ button below to deploy without having to do any manual configuration:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/andyjakubowski/tokenhost3000)
 
 Deploying manually will take more work. Here are some pointers:
 
