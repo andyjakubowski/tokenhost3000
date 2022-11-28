@@ -29,15 +29,15 @@
   "env": {
     "AWS_ACCESS_KEY_ID": {
       "description": "Access key ID for a AWS user with full access permissions to the S3 bucket to be used for storing generated stylesheets with tokens",
-      "value": "AKIARGYYUWLPA4RWWDQN"
+      "value": "your-key-id"
     },
     "AWS_SECRET_ACCESS_KEY": {
       "description": "The secret key you got when creating the access key on AWS",
-      "value": "VZc85ftTznLDH9aKfECNgVohkqYZvlQ5ZMkQKtd4"
+      "value": "your-secret"
     },
     "AWS_BUCKET": {
       "description": "The name of your AWS S3 bucket",
-      "value": "andy-capstone-week-04"
+      "value": "your-aws-bucket-name"
     },
     "BASIC_AUTH_USER": {
       "description": "The username for accessing protected routes",
