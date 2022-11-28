@@ -3,6 +3,7 @@
   "description": "Edit and deliver design tokens in real time",
   "repository": "https://github.com/andyjakubowski/tokenhost3000/tree/deploy-to-heroku-button",
   "website": "https://tokenhost3000.herokuapp.com/",
+  "logo": "https://github.com/andyjakubowski/tokenhost3000/blob/master/logo.png",
   "addons": [
     {
       "plan": "heroku-postgresql",
