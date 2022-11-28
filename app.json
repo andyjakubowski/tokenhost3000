@@ -50,5 +50,6 @@
   },
   "scripts": {
     "postdeploy": "bundle exec rake db:setup"
-  }
+  },
+  "stack": "heroku-20"
 }
