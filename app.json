@@ -45,9 +45,9 @@
     "BASIC_AUTH_PASSWORD": {
       "description": "The username for accessing protected routes",
       "generator": "secret"
-    },
-    "scripts": {
-      "postdeploy": "bundle exec rake db:setup"
     }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
   }
 }
