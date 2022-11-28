@@ -1,0 +1,53 @@
+{
+  "name": "Tokenhost 3000",
+  "description": "Edit and deliver design tokens in real time",
+  "repository": "https://github.com/andyjakubowski/tokenhost3000/tree/deploy-to-heroku-button",
+  "website": "https://tokenhost3000.herokuapp.com/",
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "14"
+      }
+    },
+    {
+      "plan": "heroku-redis",
+      "options": {
+        "version": "6"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "env": {
+    "AWS_ACCESS_KEY_ID": {
+      "description": "Access key ID for a AWS user with full access permissions to the S3 bucket to be used for storing generated stylesheets with tokens",
+      "value": "your-key-id"
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "The secret key you got when creating the access key on AWS",
+      "value": "your-secret"
+    },
+    "AWS_BUCKET": {
+      "description": "The name of your AWS S3 bucket",
+      "value": "your-aws-bucket-name"
+    },
+    "BASIC_AUTH_USER": {
+      "description": "The username for accessing protected routes",
+      "value": "admin"
+    },
+    "BASIC_AUTH_PASSWORD": {
+      "description": "The username for accessing protected routes",
+      "generator": "secret"
+    },
+    "scripts": {
+      "postdeploy": "bundle exec rake db:setup"
+    }
+  }
+}
