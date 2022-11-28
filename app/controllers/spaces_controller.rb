@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  http_basic_authenticate_with name: ENV['ANDY_CAPSTONE_USER'], password: ENV['ANDY_CAPSTONE_PW'], only: [:destroy, :index]
+  http_basic_authenticate_with name: ENV['BASIC_AUTH_USER'], password: ENV['BASIC_AUTH_PASSWORD'], only: [:destroy, :index]
 
   before_action :check_space_expiration, only: [:show]
 
