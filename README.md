@@ -82,7 +82,7 @@ bin/rails server
 Things you’ll need to deploy to Heroku:
 
 - Credentials for accessing an AWS S3 bucket. This S3 bucket will be used for stylesheets generated for each List of tokens.
-- A Heroku account. Please note that Heroku no longer offers free plans. But you should be able to deploy this app with some cheap plan prorated to the second. It should cost more than a couple of bucks.
+- A Heroku account. Please note that Heroku no longer offers free plans. But you should be able to deploy this app with some cheap plan prorated to the second. It shouldn’t cost more than a couple of bucks.
 
 Click the _Deploy to Heroku_ button below to deploy without having to do any manual configuration:
 
