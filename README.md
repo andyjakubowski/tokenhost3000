@@ -1,11 +1,10 @@
 # Intro
 
-[![Open Demo](open-demo-button.svg)](https://tokenhost3000.herokuapp.com)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/andyjakubowski/tokenhost3000)
 
 Tokenhost 3000 is a prototype of a web app that lets you edit and stream design tokens (styles) in real time to the project you’re working on.
 
-The fastest way to check out this project is to [**play with the live demo**](https://tokenhost3000.herokuapp.com/)! The demo gives you a bunch of pre-defined tokens and a sample project _Superhero Cards_ for previewing token updates.
+The fastest way to check out this project is to [deploy Tokenhost 3000 to Heroku](https://www.heroku.com/deploy/?template=https://github.com/andyjakubowski/tokenhost3000), and play with the demo included with the project. The demo gives you a bunch of pre-defined tokens and a sample project _Superhero Cards_ for previewing token updates.
 
 Overall, though, it works like this:
 
@@ -18,7 +17,8 @@ Overall, though, it works like this:
 
 ## Play with the live demo
 
-- Go to [Tokenhost 3000 deployed on Heroku](https://tokenhost3000.herokuapp.com/) and click the **Try Demo** button. A _Space_ will be created for you with 3 sample _Lists_ of tokens. Lists are like themes.
+- [Deploy Tokenhost 3000 to Heroku](https://www.heroku.com/deploy/?template=https://github.com/andyjakubowski/tokenhost3000).
+- Open the deployed project, and click the **Try Demo** button. A _Space_ will be created for you with 3 sample _Lists_ of tokens. Lists are like themes.
 - Click on the “Example: Dark” list on the Space page to go to the details of that list.
 - You should see a List page with a bunch of tokens already created.
 - Under the name of the List, there’s a “Preview Project” link. Open this link in a new browser window.

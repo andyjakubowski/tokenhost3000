@@ -2,7 +2,7 @@
   "name": "Tokenhost 3000",
   "description": "Edit and deliver design tokens in real time",
   "repository": "https://github.com/andyjakubowski/tokenhost3000",
-  "website": "https://tokenhost3000.herokuapp.com/",
+  "website": "https://github.com/andyjakubowski/tokenhost3000",
   "logo": "https://github.com/andyjakubowski/tokenhost3000/raw/master/logo.png",
   "addons": [
     {
